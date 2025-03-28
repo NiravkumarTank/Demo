@@ -1,0 +1,250 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    /* padding-top: 50px;  */
+}
+
+/* Navbar styling */
+.navbar {
+    padding: 10px 20px;
+    background-color: #333;
+    color: white; 
+    position: fixed;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    z-index: 1000;
+    width: 100%;
+    top: 0;
+    
+}
+.main-content {
+    padding-top: 80px; /* Ensure content below navbar is not hidden */
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 73px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.logo span {
+    font-size: 24px;
+    font-weight: bold;
+}
+.logo a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.logo a :hover{
+    color: #fa7e7e;
+}
+/* Navbar items */
+.nav-items {
+    list-style: none;
+    display: flex;
+    margin-left: auto;
+    /* Push nav items to the right */
+}
+
+.nav-items li {
+    margin: 0 15px;
+    position: relative;
+}
+
+.nav-items a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 10px 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effects for navbar items */
+.nav-items a:hover {
+    color: #ffcc00;
+}
+
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+}
+
+.dropdown > a::after {
+    content: " ▼";
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    min-width: 145px;
+    margin-top: 10px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    left: 0;
+    border-radius: 10px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content li {
+    padding: 8px 12px;
+    list-style-type: none;
+
+}
+
+.dropdown-content a {
+    color: white;
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effect for dropdown items */
+.dropdown-content a:hover {
+    color: #ffcc00;
+}
+
+/* Auth Block */
+.auth-block {
+    display: flex;
+    align-items: center;
+}
+
+
+.dropdown,
+.home {
+    text-decoration: none;
+    color: white;
+    background-color: #444;
+    padding: 10px;
+    border-radius: 4px;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+
+
+
+.auth-block .login-btn,
+.auth-block .register-btn,
+.auth-block .logout-btn{
+    text-decoration: none;
+    color: white;
+    background-color: #444;
+    padding: 11px 15px;
+    border-radius: 4px;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.auth-block .login-btn:hover,
+.auth-block .register-btn:hover,
+.auth-block .logout-btn:hover {
+    background-color: #555;
+}
+
+.auth-block .cart-btn,
+.auth-block .order-btn {
+    text-decoration: none;
+    color: white;
+    background-color: #444;
+    padding: 11px 15px;
+    border-radius: 4px;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.auth-block .cart-btn:hover,
+.auth-block .order-btn:hover {
+    background-color: #555;
+}
+
+.hamburger {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-items {
+        flex-direction: column;
+        margin-top: 10px;
+        width: 100%;
+        text-align: left;
+        display: none; /* Initially hide the nav items on mobile */
+    }
+
+    .nav-items.active {
+        display: flex; /* Show nav items when "active" class is added */
+    }
+
+    .nav-items li {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .auth-block {
+        margin-top: 10px;
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .auth-block .login-btn,
+    .auth-block .register-btn,
+    .auth-block .logout-btn {
+        width: 100%;
+        margin-top: 5px;
+        padding: 10px;
+        text-align: center;
+    }
+
+    /* Show hamburger icon */
+    .hamburger {
+        display: block;
+    }
+}
+
+/* Dropdown menu on mobile */
+@media (max-width: 768px) {
+    .dropdown-content {
+        position: relative;
+        box-shadow: none;
+        background-color: #444;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+}

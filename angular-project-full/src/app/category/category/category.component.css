@@ -1,0 +1,12 @@
+/* styles.css */
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  .content {
+    min-height: 90vh;
+    padding-bottom: 90px; 
+    margin: 20px 16px;
+  }
+  

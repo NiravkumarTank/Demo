@@ -1,0 +1,53 @@
+
+<div class="filterdata">
+  <button class="add-subcategory-btn" routerLink="/admin/create-product">Add Product</button>
+
+<div class="filters">
+  
+  <div class="filter-inputs">
+    <label for="category">Product Name:</label>
+    <input type="text" id="name" [(ngModel)]="nameFilter" placeholder="Filter by Product Name" (input)="filterProducts()">
+
+    <label for="category">Category:</label>
+    <input type="text" id="category" [(ngModel)]="categoryFilter" placeholder="Filter by category" (input)="filterProducts()">
+
+    <label for="subcategory">Subcategory:</label>
+    <input type="text" id="subcategory" [(ngModel)]="subcategoryFilter" placeholder="Filter by subcategory" (input)="filterProducts()">
+  </div>
+</div>
+</div>
+
+
+<!-- Data Table -->
+<table id="dataTable">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Category</th>
+      <th>Subcategory</th>
+      <th>Price</th>
+      <th>Stock</th>
+      <th>Image</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngIf="!filteredProducts.length">
+      <td colspan="8"><h2>No data available</h2></td>
+    </tr>
+    <tr *ngFor="let product of filteredProducts">
+      <td>{{ product.name }}</td>
+      <td>{{ product.description }}</td>
+      <td>{{ product.category }}</td>
+      <td>{{ product.subcategory }}</td>
+      <td>{{ product.price }}</td>
+      <td>{{ product.stock }}</td>
+      <td><img [src]="product.imageUrl" alt="{{ product.name }}"></td>
+      <td>
+        <button (click)="deleteProduct(product.productId)" class="delete-btn">Delete</button>
+        <button (click)="updateProduct(product.productId)" class="update-btn">Update</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        /* Add your CSS here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .form-container {
+            background-color: white;
+            width: 30%;
+            margin: 30px auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 28px rgba(0, 0, 0, 1.1);
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-container label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: large;
+        }
+
+        .form-container input {
+            width: 97%;
+            padding: 10px;
+            margin-bottom: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .form-container input[type=password] {
+            margin-bottom: 20px;
+        }
+
+        .form-container button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .form-container button:hover {
+            background-color: #45a049;
+        }
+
+        span {
+            color: red;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <h2>Login Page</h2>
+        <form id="LoginForm">
+            <div>
+                <label for="Email">Email:</label>
+                <input type="email" id="Email" name="Email">
+                <span id="emailError"></span>
+            </div>
+            <div>
+                <label for="Password">Password:</label>
+                <input type="password" id="Password" name="Password">
+                <span id="pwsError"></span>
+            </div>
+            <div>
+                <button type="submit">Login</button>
+            </div>
+        </form>
+        <p><a href="../Registration/Registration.html">Register page</a></p>
+    </div>
+
+    <script>
+
+        $(document).ready(function () {
+            function validateFields() {
+                var Email = $("#Email").val();
+                var Password = $("#Password").val();
+
+                $("#emailError").text("");
+                $("#pwsError").text("");
+
+                var isValid = true;
+
+                if (Email == "" || Email == null) {
+                    $("#emailError").text("Email is required.");
+                    isValid = false;
+                }
+
+                if (Password == "" || Password == null) {
+                    $("#pwsError").text("Password is required.");
+                    isValid = false;
+                }
+
+                return isValid;
+            }
+
+            $("#LoginForm").submit(function (e) {
+                e.preventDefault();
+
+                if (!validateFields()) {
+                    return;
+                }
+
+                var Email = $("#Email").val();
+                var Password = $("#Password").val();
+
+                var formdata = new FormData();
+                formdata.append("Email", Email);
+                formdata.append("Password", Password);
+
+                $.ajax({
+                    url: 'https://localhost:7262/api/User/Login',
+                    type: 'POST',
+                    data: formdata,
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                     
+
+                        alert(response.message);
+                        sessionStorage.setItem("UserId", response.data.userId);
+                        sessionStorage.setItem("FirstName", response.data.firstName);                   
+                        if (response.data.role === "Admin") {
+                            window.location.href = "../../Admin/homepage/indexhome.html";                            
+                        }
+                        else{
+                            window.location.href = "../UserHomePage/UserHomePage.html";
+                        }
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.log('Error:', textStatus);
+                        alert('Login failed. Please check your credentials.');
+                    }
+                });
+            });
+        });
+
+
+    </script>
+</body>
+
+</html>

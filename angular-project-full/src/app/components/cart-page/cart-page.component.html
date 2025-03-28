@@ -1,0 +1,217 @@
+<!-- 
+
+<div class="cart-container">
+  <div *ngIf="apiMessage" [ngClass]="{'success-message': apiMessageType === 'success', 'error-message': apiMessageType === 'error'}" class="api-message">
+    {{ apiMessage }}
+  </div>
+   <div *ngIf="loading" class="loading-overlay">
+    <div class="loader"></div>
+  </div>
+  <table id="cartTable">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Size</th> 
+        <th>Total Price</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of cartItems">
+        <td><img [src]="item.imageUrl" alt="{{ item.name }}"></td>
+        <td>{{ item.name }}</td>
+        <td>₹{{ item.price }}</td>
+        <td>
+          <button (click)="updateQuantity(item.productId, item.selectedSize)">+</button>
+          <span>{{ item.stock }}</span>
+          <button (click)="decreaseQuantity(item.productId)">-</button>
+        </td>
+        <td>
+          <select [(ngModel)]="item.selectedSize" (change)="onSizeChange(item)">
+            <option *ngFor="let size of availableSizes" [value]="size">{{ size }}</option>
+          </select>
+        </td>
+        <td>₹{{ item.price * item.stock }}</td>
+        <td><button (click)="removeCart(item.productId)">Remove</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="cart-summary">
+    <span>Total: </span><span id="totalPrice">₹{{ totalPrice }}</span>
+    <button *ngIf="cartItems.length > 0" (click)="onOrderClick()">Place Order</button>
+  </div>
+</div>
+
+<div *ngIf="showAddressPopup" class="address-overlay">
+  <div class="overlay-content">
+    <h3>Enter Shipping Address</h3>
+    <form (ngSubmit)="onSubmit()">
+      <div class="address-inputs">
+        <div class="input-half">
+          <label for="blockNumber">Block Number</label>
+          <input [(ngModel)]="blockNumber" id="blockNumber" name="blockNumber" required>
+        </div>
+
+        <div class="input-half">
+          <label for="pinCode">Pin Code</label>
+          <input [(ngModel)]="pinCode" id="pinCode" name="pinCode" (ngModelChange)="onPinCodeChange()" required>
+        </div>
+      </div>
+
+      <label for="houseAddress">Address</label>
+      <input [(ngModel)]="houseAddress" id="houseAddress" name="houseAddress" required>
+
+      <div class="address-inputs">
+        <div class="input-half">
+          <label for="area">Area</label>
+          <select [(ngModel)]="area" id="area" name="area" [disabled]="!areas || areas.length === 0">
+            <option [value]="''">Select Area</option>
+            <option *ngFor="let area of areas" [value]="area">{{ area }}</option>
+          </select>
+        </div>
+
+        <div class="input-half">
+          <label for="city">City</label>
+          <input [(ngModel)]="city" id="city" name="city" required>
+        </div>
+      </div>
+
+      <div class="address-inputs">
+        <div class="input-half">
+          <label for="state">State</label>
+          <input [(ngModel)]="state" id="state" name="state" required>
+        </div>
+
+        <div class="input-half">
+          <label for="country">Country</label>
+          <input [(ngModel)]="country" id="country" name="country" required>
+        </div>
+      </div>
+
+      <div class="overlay-buttons">
+        <button type="submit" [disabled]="loading">Submit Order</button>
+        <button type="button" (click)="closeAddressPopup()">Cancel</button>
+
+     
+      </div>
+    </form>
+  </div>
+</div>
+
+ -->
+
+
+  <div class="cart-container">
+    <div *ngIf="apiMessage" [ngClass]="{'success-message': apiMessageType === 'success', 'error-message': apiMessageType === 'error'}" class="api-message">
+      {{ apiMessage }}
+    </div>
+
+    <div *ngIf="loading" class="loading-overlay">
+      <div class="loader"></div>
+    </div>
+
+    <table id="cartTable">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Size</th>
+          <th>Total Price</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cartItems">
+          <td><img [src]="item.imageUrl" alt="{{ item.name }}"></td>
+          <td>{{ item.name }}</td>
+          <td>₹{{ item.price }}</td>
+          <td>
+            <button (click)="updateQuantity(item.productId, item.selectedSize)">+</button>
+            <span>{{ item.stock }}</span>
+            <button (click)="decreaseQuantity(item.productId)">-</button>
+          </td>
+          <td>
+            <!-- <select [(ngModel)]="item.selectedSize" (change)="onSizeChange(item)">
+              <option *ngFor="let size of availableSizes" [value]="size">{{ size }}</option>
+            </select> -->
+            <select [(ngModel)]="item.selectedSize" (change)="onSizeChange(item)">
+              <option *ngFor="let size of item.availableSizes" [value]="size">{{ size }}</option>
+            </select>
+            
+            
+          </td>
+          <td>₹{{ item.price * item.stock }}</td>
+          <td><button (click)="removeCart(item.productId)">Remove</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="cart-summary">
+      <span>Total: </span><span id="totalPrice">₹{{ totalPrice }}</span>
+      <button *ngIf="cartItems.length > 0" (click)="onOrderClick()">Place Order</button>
+    </div>
+  </div>
+
+  <div *ngIf="showAddressPopup" class="address-overlay">
+    <div class="overlay-content">
+      <h3>Enter Shipping Address</h3>
+      <form (ngSubmit)="onSubmit(addressForm)" #addressForm="ngForm">
+        <div class="address-inputs">
+          <div class="input-half">
+            <label for="blockNumber">Block Number</label>
+            <input [(ngModel)]="blockNumber" id="blockNumber" name="blockNumber" required #block="ngModel">
+          </div>
+
+          <div class="input-half">
+            <label for="pinCode">Pin Code</label>
+            <input [(ngModel)]="pinCode" id="pinCode" name="pinCode" (ngModelChange)="onPinCodeChange()" required #pin="ngModel">
+          </div>
+        </div>
+
+        <label for="houseAddress">Address</label>
+        <input [(ngModel)]="houseAddress" id="houseAddress" name="houseAddress" required #house="ngModel">
+
+        <div class="address-inputs">
+          <div class="input-half">
+            <label for="area">Area</label>
+            <select [(ngModel)]="area" id="area" name="area" [disabled]="!areas || areas.length === 0">
+              <option [value]="''">Select Area</option>
+              <option *ngFor="let area of areas" [value]="area">{{ area }}</option>
+            </select>
+          </div>
+
+          <div class="input-half">
+            <label for="city">City</label>
+            <input [(ngModel)]="city" id="city" name="city" required>
+          </div>
+        </div>
+
+        <div class="address-inputs">
+          <div class="input-half">
+            <label for="state">State</label>
+            <input [(ngModel)]="state" id="state" name="state" required>
+          </div>
+
+          <div class="input-half">
+            <label for="country">Country</label>
+            <input [(ngModel)]="country" id="country" name="country" required>
+          </div>
+        </div>
+
+        <div class="overlay-buttons">
+          <button type="submit" class="submit" [disabled]="loading || !addressForm.valid">Submit Order</button>
+
+
+
+
+          <button type="button" (click)="closeAddressPopup()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>

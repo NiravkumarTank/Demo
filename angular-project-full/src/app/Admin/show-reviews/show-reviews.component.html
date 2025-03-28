@@ -1,0 +1,25 @@
+
+  
+  <table id="dataTable">
+
+    <thead>
+      <tr>
+        <th>UserName</th>
+        <th>Email</th>
+        <th>Product Name</th>
+        <th>comment</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let users of filteredusers">
+        <td>{{ users.fullname }}</td>
+        <td>{{ users.email }}</td>
+        <td>{{ users.productName }}</td>
+        <td>{{ users.comment }}</td>
+        <td>{{ users.reviews_date }}</td>
+        
+      </tr>
+    </tbody>
+  </table>
+  

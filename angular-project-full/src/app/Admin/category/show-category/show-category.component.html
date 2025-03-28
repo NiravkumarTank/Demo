@@ -1,0 +1,33 @@
+
+
+   <div class="container">
+    <button class="add-subcategory-btn" routerLink="/admin/create-category">Add Category</button>
+    
+    <div class="search-box">
+      <input type="text" [(ngModel)]="searchText" placeholder="Search Category or Subcategory" (input)="filterSubcategories()" />
+    </div>
+    
+    <div *ngIf="subcategories.length > 0" class="table">
+      <table class="styled-table">
+        <thead>
+          <tr>
+            <th>Subcategory ID</th>
+            <th>Subcategory Name</th>
+            <th>Category</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let subcategory of filteredSubcategories">
+            <td>{{ subcategory.sc_id }}</td>
+            <td>{{ subcategory.sc_Name }}</td>
+            <td>{{ getCategoryName(subcategory.c_id) }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div *ngIf="filteredSubcategories.length === 0">
+      <p>No subcategories available.</p>
+    </div>
+  </div>
+  

@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <app-admin-sidbar-page></app-admin-sidbar-page> -->
+    <div class="sidebar">
+        <ul>
+          <li><a routerLink="/admin/home">Home</a></li>  
+          <li><a routerLink="/admin/show-category">Category</a></li> 
+          <li><a routerLink="/admin/show-product">Product</a></li> 
+          <li><a routerLink="/admin/show-user">All User</a></li> 
+          <li><a routerLink="/admin/show-reviews">User Review</a></li> 
+        </ul>
+      </div>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="Image/logo.jpg" alt="Logo"  />
+                <a routerLink="/admin/home"><span>juta.com</span></a>  
+            </div>
+
+         
+
+            <div class="auth-block">
+            
+                <a *ngIf="isLoggedIn" (click)="logout()" class="logout-btn">Logout</a>           
+            </div>
+        </nav>
+    </header>
+
+  
+    <div class="content">
+        <router-outlet></router-outlet>
+      </div>
+
+</body>
+</html>

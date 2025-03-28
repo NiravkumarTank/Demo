@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    /* padding-top: 60px; Add space for the fixed navbar */
+}
+
+/* Navbar styling */
+.navbar {
+    padding: 10px 20px;
+    background-color: #333;
+    color: white; 
+    position: fixed;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    z-index: 1000;
+    width: 100%;
+    top: 0;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 73px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.logo span {
+    font-size: 24px;
+    font-weight: bold;
+}
+.logo a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.logo a :hover{
+    color: #fa7e7e;
+}
+
+
+
+
+
+
+.auth-block {
+    display: flex;
+    align-items: center;
+}
+
+
+
+
+
+
+.auth-block .logout-btn{
+    text-decoration: none;
+    color: white;
+    background-color: #444;
+    padding: 8px 15px;
+    border-radius: 4px;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.auth-block .logout-btn:hover {
+    background-color: #555;
+}
+
+
+
+
+@media (max-width: 768px) {
+    
+
+    .auth-block {
+        margin-top: 10px;
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .logout-btn {
+        width: 100%;
+        margin-top: 5px;
+        padding: 10px;
+        text-align: center;
+    }
+
+   
+}
+
+
+
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    padding-top: 80px;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    padding: 15px;
+  }
+  
+  .sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    text-align: center;
+    border-radius: 4px;
+  }
+  
+  .sidebar ul li a:hover {
+    background-color: #575757;
+  }
+  
+  
+
+
+
+.content {
+    margin-left: 261px;
+    padding: 9px;
+    margin-top: 5px;
+  }
+  

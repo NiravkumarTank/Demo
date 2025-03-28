@@ -1,0 +1,223 @@
+<!-- <div class="filter-container">
+  <h2 class="man-text">children</h2>
+  <input type="text" [(ngModel)]="searchQuery" (input)="filterProducts()"
+    placeholder="Filter by product name and category" class="filter-input" />
+</div>
+<div *ngIf="loading" class="loading">Loading...</div>
+
+<div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+<div *ngIf="!loading && filteredProducts.length > 0" class="main">
+  <div *ngFor="let product of filteredProducts" class="product-card">
+    <img [src]="product.imageUrl" alt="{{ product.name }}" class="product-image" />
+    <div class="product-details">
+      <h3>{{ product.name }}</h3>
+      <p>{{ product.description }}</p>
+      <p>Category: {{ product.subcategory }}</p>
+      <p class="price">Price: ₹{{ product.price }}</p>
+      <p class="stock">Stock: {{ product.stock }}</p>
+
+    </div>
+    <button (click)="addToCart(product)" class="add-to-cart-btn">Add to Cart</button>
+  </div>
+</div>
+
+<div *ngIf="showModal" class="modal">
+  <div class="modal-content">
+    <h3>Please log in first</h3>
+    <p>You need to log in to add products to the cart.</p>
+    <button (click)="closeModal()">Close</button>
+  </div>
+</div> -->
+<!-- 
+<div class="filter-container">
+  <h2 class="man-text">children</h2>
+  <input type="text" [(ngModel)]="searchQuery" (input)="filterProducts()"
+    placeholder="Filter by product name and category" class="filter-input" />
+</div>
+<div *ngIf="loading" class="loading">Loading...</div>
+
+<div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+
+
+<div *ngIf="!loading && filteredProducts.length > 0" class="main">
+
+<div class="card" *ngFor="let product of filteredProducts">
+  <img [src]="product.imageUrl" alt="{{ product.name }}" class="card-image">
+  <div class="card-body">
+    <h3 class="category-name">{{ product.name }}</h3>
+    <div class="category-container">
+
+      <h3 class="category-name">{{ product.subcategory }}</h3>
+      <button (click)="addToCart(product)" class="add-to-cart">Add to Cart</button>
+    </div>
+    <p class="description">{{ product.description }} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor
+      veritatis accusamus inventore hic adipisci nostrum dolorum perferendis, maiores eius quaerat expedita rerum
+      tenetur et nisi cumque. Natus nesciunt ea aspernatur! Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Aspernatur dolores, cupiditate, qui ipsam voluptatibus aliquid culpa quaerat explicabo error excepturi blanditiis
+      nihil! Accusamus nemo excepturi distinctio suscipit delectus vel esse!</p>
+    <div class="price-stock">
+      <span class="price">₹{{ product.price }}</span>
+      <span class="stock">In Stock {{ product.stock }}</span>
+    </div>
+  </div>
+</div>
+</div>
+
+<div *ngIf="showModal" class="modal">
+  <div class="modal-content">
+    <h3>Please log in first</h3>
+    <p>You need to log in to add products to the cart.</p>
+    <button (click)="closeModal()">Close</button>
+  </div>
+</div> -->
+
+<!-- 
+<div *ngIf="successMessage" class="success-message">
+  {{ successMessage }}
+</div>
+
+<div class="filter-container">
+  <h2 class="man-text">Kids</h2>
+  <input type="text" [(ngModel)]="searchQuery" (input)="filterProducts()"
+    placeholder="Filter by product name and category" class="filter-input" />
+</div>
+
+<div *ngIf="loading" class="loading">Loading...</div>
+
+<div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+<div *ngIf="filteredProducts.length === 0 && !loading && !errorMessage" class="no-products-message">
+  <h1>Product Not Found</h1>
+</div>
+
+<div *ngIf="!loading && filteredProducts.length > 0" class="main">
+  <div class="card" *ngFor="let product of filteredProducts">
+    <img [src]="product.imageUrl" alt="{{ product.name }}" class="card-image">
+    <div class="card-body">
+      <h3 class="category-name">{{ product.name }}</h3>
+      <h3 class="category-name">{{ product.subcategory }}</h3>
+      <div class="category-container">
+        <div class="size-selector">
+          <label for="size-{{ product.productId }}">Size:</label>
+          <select id="size-{{ product.productId }}" [(ngModel)]="selectedSizes[product.productId]">
+            <option *ngFor="let size of availableSizes" [value]="size">{{ size }}</option>
+          </select>
+        </div>
+        <button (click)="addToCart(product)" class="add-to-cart">Add to Cart</button>
+
+      </div>
+      <div class="price-stock">
+        <span class="price">₹{{ product.price }}</span>
+        <span>In Stock <span class="stock">{{ product.stock }}</span></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="showModal" class="modal">
+  <div class="modal-content">
+    <h3>Please log in first</h3>
+    <p>You need to log in to add products to the cart.</p>
+    <button (click)="closeModal()">Close</button>
+  </div>
+</div> -->
+
+
+
+
+
+
+<!-- <div *ngIf="selectedProduct && !loading" class="modal">
+  <div class="modal-content">
+    <h3>{{ selectedProduct.name }}</h3>
+    <img [src]="selectedProduct.imageUrl" alt="{{ selectedProduct.name }}" class="product-image">
+    <p><strong>Category:</strong> {{ selectedProduct.subcategory }}</p>
+    <p><strong>Price:</strong> ₹{{ selectedProduct.price }}</p>
+    <p><strong>Description:</strong> {{ selectedProduct.description }}</p>
+    <button (click)="closeModal()">Close</button>
+  </div>
+</div> -->
+
+  <div *ngIf="selectedProduct && !loading" class="modal">
+    <div class="modal-content">
+      <h3>{{ selectedProduct.name }}</h3>
+      <img [src]="selectedProduct.imageUrl" alt="{{ selectedProduct.name }}" class="product-image">
+      <p><strong>Category:</strong> {{ selectedProduct.subcategory }}</p>
+      <p><strong>Price:</strong> ₹{{ selectedProduct.price }}</p>
+      <p><strong>Description:</strong> {{ selectedProduct.description }}</p>
+      
+      <h4 >Previous Reviews</h4>
+      <div *ngIf="reviews.length > 0; else noReviews">
+        <div *ngFor="let review of reviews">
+          <p><strong>{{ review.fullname }}:</strong> {{ review.comment }}</p>
+        </div>
+      </div>
+      <ng-template #noReviews>
+        <p>No reviews available for this product.</p>
+      </ng-template>
+      
+      
+      <button (click)="closeModal()">Close</button>
+    </div>
+  </div>
+<!-- Filter input and success message-->
+<div class="filter-container">
+  <h2 class="man-text">Kids</h2>
+  <div class="filter-container1">
+    <input type="text" [(ngModel)]="searchQuery" (input)="filterProducts()"
+      placeholder="Filter by product name and category" class="filter-input" />
+
+    <!-- Sort Dropdown -->
+    <select (change)="sortProducts($event)" class="sort-dropdown">
+      <option value="">Select Price filter</option>
+      <option value="lowToHigh">Price: Low to High</option>
+      <option value="highToLow">Price: High to Low</option>
+    </select>
+  </div>
+</div>
+
+<div *ngIf="successMessage" class="success-message">
+  {{ successMessage }}
+</div>
+
+<div *ngIf="loading" class="loading">Loading...</div>
+
+<div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+<div *ngIf="filteredProducts.length === 0 && !loading && !errorMessage" class="no-products-message">
+  <h1>Product Not Found</h1>
+</div>
+
+<div *ngIf="!loading && filteredProducts.length > 0" class="main">
+  <div class="card" *ngFor="let product of filteredProducts">
+    <img [src]="product.imageUrl" (click)="showProductDetails(product)" alt="{{ product.name }}" class="card-image">
+    <div class="card-body">
+      <h3 class="category-name">{{ product.name }}</h3>
+      <h3 class="category-name">{{ product.subcategory }}</h3>
+      <div class="category-container">
+        <div class="size-selector">
+          <label for="size-{{ product.productId }}">Size:</label>
+          <select id="size-{{ product.productId }}" [(ngModel)]="selectedSizes[product.productId]">
+            <option *ngFor="let size of availableSizes" [value]="size">{{ size }}</option>
+          </select>
+        </div>
+        <button (click)="addToCart(product)" class="add-to-cart">Add to Cart</button>
+      </div>
+      <div class="price-stock">
+        <span class="price">₹{{ product.price }}</span>
+        <span>In Stock <span class="stock">{{ product.stock }}</span></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showModal" class="modal">
+  <div class="modal-content">
+    <h3>Please log in first</h3>
+    <p>You need to log in to add products to the cart.</p>
+    <button (click)="closeModal()">Close</button>
+  </div>
+</div>

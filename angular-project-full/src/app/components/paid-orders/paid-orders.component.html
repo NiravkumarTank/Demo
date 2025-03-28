@@ -1,0 +1,66 @@
+<!-- Loading Spinner -->
+<div *ngIf="loadingPaid" id="loading">
+  <p>Loading Paid Orders...</p>
+</div>
+
+<!-- Button to go back to the order history -->
+<div class="button-container">
+  <button class="order-history" (click)="navigateToOrderPaid()">Back</button>
+</div>
+
+<!-- Display Paid Orders -->
+<div style="margin-bottom: 10%;" *ngIf="!loadingPaid && getPaidOrderKeys().length > 0">
+  <h2>Paid History</h2>
+
+  <div *ngFor="let date of getPaidOrderKeys()">
+    <h3 style="margin: 18px 23%;">{{ date }}</h3>
+    
+    <div style="margin: 10px 22%;" *ngFor="let order of paidOrders[date].orders" class="order-item">
+      <img [src]="order.productImage" [alt]="order.productName" />
+      <div class="order-details">
+        <h3>Order #{{ order.orderId }}</h3>
+        <p><strong>Order Date:</strong> {{ order.orderDate }}</p>
+        <p class="product-name">{{ order.productName }}</p>
+        <p><strong>Shipping Address:</strong> {{ order.shippingAddress }}</p>
+        <p><strong>Quantity:</strong> {{ order.quantity }}</p>
+        <p><strong>Size:</strong> {{ order.shoesNumber }}</p>
+        <p><strong>Total:</strong> ₹{{ order.total }}</p>
+        
+        <!-- Add Review Button -->
+        <button (click)="openReviewOverlay(order)">Add Review</button>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<!-- No Paid Orders Message -->
+<div *ngIf="!loadingPaid && getPaidOrderKeys().length === 0 && !errorMessage" class="no-orders-message">
+  <p>No paid orders available.</p>
+</div>
+
+<!-- Error Message -->
+<div *ngIf="errorMessage" class="error-message">
+  <p>{{ errorMessage }}</p>
+</div>
+
+<!-- Success Message -->
+
+
+<!-- Review Overlay Modal -->
+<div *ngIf="isReviewOverlayVisible" class="review-overlay">
+  
+  <div class="review-modal">
+    <h3>Write a Review</h3>
+    <textarea [(ngModel)]="reviewComment" placeholder="Write your comment here..."></textarea>
+    <div class="modal-buttons">
+      <button type="submit" (click)="submitReview(orderToReview)">Submit</button>
+      <button type="button" class="remove-btn" (click)="closeReviewOverlay()">Cancel</button>
+
+     
+    </div>
+    <div *ngIf="successMessage" class="success-message">
+      <p>{{ successMessage }}</p>
+    </div>
+  </div>
+</div>

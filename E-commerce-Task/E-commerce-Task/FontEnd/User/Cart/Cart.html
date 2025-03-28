@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        #main {
+            width: 100%;
+            text-align: center;
+            background-color: #000;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .admin-link {
+            margin-left: 63px;
+            font-size: x-large;
+            color: white;
+            text-decoration: none;
+        }
+
+        .admin-link a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .admin-link a:hover {
+            color: rgb(91, 241, 141);
+            text-decoration: none;
+            transition: 0.5s;
+        }
+
+        .nav__link {
+            margin-right: 46px;
+        }
+
+        .nav__link ul {
+            list-style: none;
+            gap: 40px;
+            display: flex;
+            justify-content: flex-start;
+            text-align: center;
+            padding-left: 40px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: aliceblue;
+            transition: 0.3s;
+            padding: 10px;
+            display: inline-block;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(186, 254, 231, 0.894);
+            border-radius: 10px;
+            color: #000;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .update-btn,
+        .cancel-btn {
+            padding: 6px 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+
+        .update-btn:hover {
+            background-color: #45a049;
+        }
+
+        .cancel-btn {
+            background-color: red;
+        }
+
+        .cancel-btn:hover {
+            background-color: darkred;
+        }
+
+        img {
+            max-width: 100px;
+            height: auto;
+        }
+
+        .cart-summary {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin: 0px 10%;
+        }
+
+        .cart-summary span {
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 1.2em;
+        }
+
+        .cart-summary #totalPrice {
+            font-size: 1.5em;
+            margin-right: 20px;
+        }
+
+        .cart-summary button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+
+        .cart-summary button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <div class="admin-link">
+            <a href="#">Shopping Cart</a>
+        </div>
+        <div id="menus">
+            <nav class="nav__link">
+                <ul>
+                    <li><a href="../UserHomePage/UserHomePage.html">Home</a></li>
+                    <li><a href="#">Cart</a></li>
+                    <li><a href="../Order/order.html">Order</a></li>
+                    <li><a href="../Profile/profile.html">Profile</a></li>
+                    <li><a href="#" id="logoutBtn">LogOut</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <table id="cartTable">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total Price</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="cartBody"></tbody>
+    </table>
+
+    <div class="cart-summary">
+        <span>Total: </span><span id="totalPrice">$0.00</span> 
+        <button id="Order">Order</button>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            var userId = sessionStorage.getItem("UserId");
+            var fname = sessionStorage.getItem("FirstName");
+
+            if (!userId || !fname) {
+                window.location.href = "../Login/Login.html";
+            }
+
+            $("#logoutBtn").click(function () {
+                sessionStorage.clear();
+                window.location.href = "../Login/Login.html";
+            });
+
+            $("#PdfGenarate").click(function () {
+                var url = `https://localhost:7262/api/Cart/PdfGenarate/${userId}`
+                window.location.href = url;
+            })
+            $("#Order").click(function () {
+                var userId = sessionStorage.getItem("UserId");
+
+                if (!userId) {
+                    alert("User is not logged in.");
+                    return;
+                }
+
+                var address = prompt("Please enter your shipping address:");
+
+                if (!address) {
+                    alert("Address is required to proceed with the order.");
+                    return;
+                }
+                console.log("User ID:", userId);
+                console.log("Shipping Address:", address);
+
+               
+                $.get(`https://localhost:7262/api/Cart/${userId}`, function (cartData, status) {
+                    if (!cartData || cartData.length === 0) {
+                        alert("Your cart is empty. Add items to your cart before placing an order.");
+                        return;
+                    }
+
+                    $.ajax({
+                        url: `https://localhost:7262/api/Order/PlaceOrder`, 
+                        type: "POST",
+                        data: JSON.stringify({
+                            UserId: userId,
+                            ShippingAddress: address,
+                            Status: "pending"  
+                        }),  
+                        contentType: "application/json",  
+                        success: function (response) {
+                            console.log("Order Response:", response);
+
+                            if (response.orderId) {
+                                 window.location.href = "../Order/order.html";  
+                            } else {
+                                alert("Failed to place order: " + response.message);
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            console.error("AJAX Error:", error);
+                            console.error("Response Text:", xhr.responseText);
+                            alert("Error placing the order. See console for details.");
+                        }
+                    });
+                });
+            });
+
+
+
+            // Fetch Cart Data
+            $.get(`https://localhost:7262/api/Cart/${userId}`, function (data, status) {
+                var $cartBody = $("#cartBody");
+                $cartBody.empty();
+                var totalPrice = 0;
+
+                if (data && data.length > 0) {
+                    data.forEach(function (item) {
+                        var row = `<tr data-id="${item.productId}">
+                    <td><img src="${item.imageUrl}" alt="${item.name}"></td>
+                    <td>${item.name}</td>
+                    <td>₹${item.price}</td>
+                    <td>
+                        <button class="update-btn increase-btn" data-action="increase" data-id="${item.productId}">+</button>
+                        <span class="quantity">${item.stock}</span> 
+                        <button class="update-btn decrease-btn" data-action="decrease" data-id="${item.productId}">-</button>
+                    </td>
+                    <td>₹${(item.price * item.stock).toFixed(2)}</td>
+                    <td><button class="cancel-btn">Remove</button></td>
+                    </tr>`;
+                        $cartBody.append(row);
+                        totalPrice += item.price * item.stock;
+                    });
+
+                    $("#totalPrice").text(`₹${totalPrice.toFixed(2)}`);
+                } else {
+                    $cartBody.append("<tr><td colspan='6'>No items in the cart.</td></tr>");
+                    $("#totalPrice").text("$0.00");
+                }
+            });
+
+            // Increase or Decrease Item Quantity
+            $(document).on('click', '.update-btn', function () {
+                var action = $(this).data('action');
+                var productId = $(this).data('id');
+                var userId = sessionStorage.getItem("UserId");
+
+                var formData = new FormData();
+                formData.append("ProductId", productId);
+                formData.append("UserId", userId);
+
+                if (action === 'increase') {
+                    $.ajax({
+                        url: "https://localhost:7262/api/Cart/AddToCart",
+                        type: "POST",
+                        data: formData,
+                        contentType: false,
+                        processData: false,
+                        success: function (response) {
+                            alert(response.message);
+                            window.location.reload();
+                        },
+                        error: function (xhr, status, error) {
+                            alert('Error: ' + error);
+                        }
+                    });
+                } else if (action === 'decrease') {
+                    $.ajax({
+                        url: "https://localhost:7262/api/Cart/DecreaseStock",
+                        type: "POST",
+                        data: formData,
+                        contentType: false,
+                        processData: false,
+                        success: function (response) {
+                            alert(response.message);
+                            window.location.reload();
+                        },
+                        error: function (xhr, status, error) {
+                            alert('Error: ' + error);
+                        }
+                    });
+                }
+            });
+
+            $(document).on('click', '.cancel-btn', function () {
+                var productId = $(this).closest('tr').data('id');
+                var userId = sessionStorage.getItem("UserId");
+
+                var confirmation = confirm("Are you sure you want to remove this item from the cart?");
+
+                if (confirmation) {
+                    $.ajax({
+                        url: `https://localhost:7262/api/Cart/DeleteCart?uid=${userId}&pid=${productId}`,
+                        type: "DELETE",
+                        success: function (response) {
+                            window.location.reload();
+                        },
+                        error: function (xhr, status, error) {
+                            alert('Error: ' + error);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

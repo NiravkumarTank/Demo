@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        #main {
+            width: 100%;
+            text-align: center;
+            background-color: #000;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .User-link {
+            margin-left: 63px;
+            font-size: x-large;
+            color: white;
+            text-decoration: none;
+        }
+
+        .User-link a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .User-link a:hover {
+            color: rgb(91, 241, 141);
+            text-decoration: none;
+            transition: 0.5s;
+        }
+
+        .nav__link {
+            margin-right: 46px;
+        }
+
+        .nav__link ul {
+            list-style: none;
+            gap: 40px;
+            display: flex;
+            justify-content: flex-start;
+            text-align: center;
+            padding-left: 40px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: aliceblue;
+            transition: 0.3s;
+            padding: 10px;
+            display: inline-block;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(186, 254, 231, 0.894);
+            border-radius: 10px;
+            color: #000;
+        }
+
+        .profile-container {
+            margin: 50px auto;
+            width: 60%;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-container h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .profile-details {
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .profile-details p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .edit-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .edit-btn:hover {
+            background-color: #45a049;
+        }
+
+        .edit-form input, .edit-form select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+
+        .edit-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .edit-form button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="main">
+        <div class="User-link">
+            <a href="#">Profile</a>
+        </div>
+        <div id="menus">
+            <nav class="nav__link">
+                <ul>
+                    <li><a href="../UserHomePage/UserHomePage.html">Home</a></li>
+                    <li><a href="../Cart/Cart.html">Cart</a></li>
+                    <li><a href="../Profile/profile.html">Profile</a></li>
+                    <li><a href="#" id="logoutBtn">LogOut</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="profile-container">
+        <h2>User Profile</h2>
+        <div class="profile-details" id="profileDetails">
+            <!-- User details will be displayed here -->
+            <p><strong>First Name:</strong> <span id="fname">Loading...</span></p>
+            <p><strong>Last Name:</strong> <span id="lname">Loading...</span></p>
+            <p><strong>Email:</strong> <span id="email">Loading...</span></p>
+            <p><strong>Phone:</strong> <span id="phone">Loading...</span></p>
+            <p><strong>Gender:</strong> <span id="gender">Loading...</span></p>
+            <button class="edit-btn" id="editBtn">Edit</button>
+        </div>
+
+        <div class="edit-form" id="editForm" style="display:none;">
+            <!-- Form to edit user details -->
+            <h3>Edit Profile</h3>
+            <input type="text" id="editFirstName" placeholder="First Name">
+            <input type="text" id="editLastName" placeholder="Last Name">
+            <input type="email" id="editEmail" placeholder="Email">
+            <input type="text" id="editPhone" placeholder="Phone">
+            <select id="editGender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+            <button type="button" id="saveBtn">Save Changes</button>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {3
+            var userId = sessionStorage.getItem("UserId");
+            
+            
+            $("#logoutBtn").click(function () {
+                sessionStorage.clear();
+                window.location.href = "../Login/Login.html";
+            });
+
+
+            $.ajax({
+                url: `https://localhost:7262/api/User/GetByIdUser/${userId}`,
+                method: 'GET',
+                success: function(data) {
+                    // console.log(data);
+
+                    $('#fname').text(data.firstName);
+                    $('#lname').text(data.lastName);
+                    $('#email').text(data.email);
+                    $('#phone').text(data.phoneNumber);
+                    $('#gender').text(data.gender);
+
+                    $('#editFirstName').val(data.firstName);
+                    $('#editLastName').val(data.lastName);
+                    $('#editEmail').val(data.email);
+                    $('#editPhone').val(data.phoneNumber);
+                    $('#editGender').val(data.gender);  
+                },
+                error: function(error) {
+                    console.error("Error fetching user data: ", error);
+                    alert("Failed to load user data.");
+                }
+            });
+
+            const editBtn = $('#editBtn');
+            const editForm = $('#editForm');
+            const profileDetails = $('#profileDetails');
+            const saveBtn = $('#saveBtn');
+
+            // Toggle between view and edit modes
+            editBtn.click(function() {
+                profileDetails.hide();
+                editForm.show();
+            });
+
+            // Save edited profile details
+            saveBtn.click(function() {
+                const firstName = $('#editFirstName').val();
+                const lastName = $('#editLastName').val();
+                const email = $('#editEmail').val();
+                const phone = $('#editPhone').val();
+                const gender = $('#editGender').val();
+
+                // Update the profile details section
+                profileDetails.html(`
+                    <p><strong>First Name:</strong> ${firstName}</p>
+                    <p><strong>Last Name:</strong> ${lastName}</p>
+                    <p><strong>Email:</strong> ${email}</p>
+                    <p><strong>Phone:</strong> ${phone}</p>
+                    <p><strong>Gender:</strong> ${gender}</p>
+                `);
+
+                // Hide the edit form and show the updated details
+                editForm.hide();
+                profileDetails.show();
+
+                // Make an API request to update the user details
+                $.ajax({
+                    url: `https://localhost:7262/api/User/UpdateUser/${userId}`, // Make sure this API endpoint is available
+                    method: 'PUT',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        firstName: firstName,
+                        lastName: lastName,
+                        email: email,
+                        phoneNumber: phone,
+                        gender: gender
+                    }),
+                    success: function(response) {
+                        alert("Profile updated successfully.");
+                    },
+                    error: function(error) {
+                        console.error("Error updating user data: ", error);
+                        alert("Failed to update profile.");
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

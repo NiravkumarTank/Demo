@@ -1,0 +1,11 @@
+<div class="carousel-container">
+    <div class="carousel-slide">
+      <img [src]="slides[currentIndex].image" alt="Slide" />
+    </div>
+  
+    <!-- Navigation buttons with CSS arrows -->
+    <div class="carousel-controls">
+      <button (click)="prevSlide()" class="prev-arrow"></button>
+      <button (click)="nextSlide()" class="next-arrow"></button>
+    </div>
+</div>

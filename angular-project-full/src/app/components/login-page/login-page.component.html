@@ -1,0 +1,58 @@
+<!-- <div class="form-container">
+    <h2>Login Page</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" formControlName="email" required />
+            <span *ngIf="email?.touched && email?.hasError('required')">Email is required.</span>
+            <span *ngIf="email?.touched && email?.hasError('email')">Invalid email format.</span>
+        </div>
+
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" formControlName="password" required />
+            <span *ngIf="password?.touched && password?.hasError('required')">Password is required.</span>
+            <span *ngIf="password?.touched && password?.hasError('weakPassword')"> 
+                Password must be at least 6 characters long, contain an uppercase letter, a lowercase letter, and a special character.
+            </span>
+        </div>
+
+        <div>
+            <button type="submit" [disabled]="loginForm.invalid">Login</button>
+        </div>
+    </form>
+
+    <p><a routerLink="/register">Register page</a></p>
+</div> -->
+
+<div class="form-container">
+    <h2>Login Page</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <!-- Email field -->
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" formControlName="email" required />
+        <span *ngIf="email?.dirty && email?.hasError('required')">Email is required.</span>
+        <span *ngIf="email?.dirty && email?.hasError('email')">Invalid email format.</span>
+      </div>
+  
+      <!-- Password field -->
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" formControlName="password" required />
+        <span *ngIf="password?.dirty && password?.hasError('required')">Password is required.</span>
+        <span *ngIf="password?.dirty && password?.hasError('weakPassword')">
+          Password must be at least 6 characters long, contain an uppercase letter, a lowercase letter, and a special character("&#64;").
+        </span>
+      </div>
+  
+      <!-- Submit button -->
+      <div>
+        <button type="submit" [disabled]="loginForm.invalid">Login</button>
+      </div>
+    </form>
+  
+    <p><a routerLink="/register">Register page</a>
+    <a routerLink="/forgot-password">forgot password</a></p>
+  </div>
+  

@@ -1,0 +1,103 @@
+
+  <!-- <div *ngIf="selectedProduct && !loading" class="modal">
+    <div class="modal-content">
+      <h3>{{ selectedProduct.name }}</h3>
+      <img [src]="selectedProduct.imageUrl" alt="{{ selectedProduct.name }}" class="product-image">
+      <p><strong>Category:</strong> {{ selectedProduct.subcategory }}</p>
+      <p><strong>Price:</strong> ₹{{ selectedProduct.price }}</p>
+      <p><strong>Description:</strong> {{ selectedProduct.description }}</p>
+      <button (click)="closeModal()">Close</button>
+      Previous Reviews 
+      
+    </div>
+  </div> -->
+
+  <div *ngIf="selectedProduct && !loading" class="modal">
+    <div class="modal-content">
+      <h3>{{ selectedProduct.name }}</h3>
+      <img [src]="selectedProduct.imageUrl" alt="{{ selectedProduct.name }}" class="product-image">
+      <p><strong>Category:</strong> {{ selectedProduct.subcategory }}</p>
+      <p><strong>Price:</strong> ₹{{ selectedProduct.price }}</p>
+      <p><strong>Description:</strong> {{ selectedProduct.description }}</p>
+      
+      <h4 >Previous Reviews</h4>
+      <div *ngIf="reviews.length > 0; else noReviews">
+        <div *ngFor="let review of reviews">
+          <p><strong>{{ review.fullname }}:</strong> {{ review.comment }}</p>
+        </div>
+      </div>
+      <ng-template #noReviews>
+        <p>No reviews available for this product.</p>
+      </ng-template>
+      
+      
+      <button (click)="closeModal()">Close</button>
+    </div>
+  </div>
+  
+<div class="filter-container">
+  <h2 class="man-text">Men</h2>
+  <div class="filter-container1">
+    <input type="text" [(ngModel)]="searchQuery" (input)="filterProducts()"
+      placeholder="Filter by product name and category" class="filter-input" />
+
+    <select (change)="sortProducts($event)" class="sort-dropdown">
+      <option value="">Select Price filter</option>
+      <option value="lowToHigh">Price: Low to High</option>
+      <option value="highToLow">Price: High to Low</option>
+    </select>
+  </div>
+</div>
+
+<div *ngIf="successMessage" class="success-message">
+  {{ successMessage }}
+</div>
+
+<div *ngIf="loading" class="loading">Loading...</div>
+
+<div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+<div *ngIf="filteredProducts.length === 0 && !loading && !errorMessage" class="no-products-message">
+  <h1>Product Not Found</h1>
+</div>
+
+<div *ngIf="!loading && filteredProducts.length > 0" class="main">
+  <div class="card" *ngFor="let product of filteredProducts">
+    <img [src]="product.imageUrl" (click)="showProductDetails(product)" alt="{{ product.name }}" class="card-image">
+    <div class="card-body">
+      <h3 class="category-name">{{ product.name }}</h3>
+      <h3 class="category-name">{{ product.subcategory }}</h3>
+      <div class="category-container">
+        <div class="size-selector">
+          <label for="size-{{ product.productId }}">Size:</label>
+          <select id="size-{{ product.productId }}" [(ngModel)]="selectedSizes[product.productId]">
+            <option *ngFor="let size of availableSizes" [value]="size">{{ size }}</option>
+          </select>
+        </div>
+
+        <button *ngIf="product.stock > 0" type="button" (click)="addToCart(product)" class="add-to-cart">
+          Add to Cart
+        </button>
+        <button *ngIf="product.stock === 0" class="out-of-stock" disabled>
+          Out of Stock
+        </button>
+      </div>
+
+      <div class="price-stock">
+        <span class="price">₹{{ product.price }}</span>
+        <span>In Stock <span class="stock">{{ product.stock }}</span></span>
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="showModal" class="modal">
+  <div class="modal-content">
+    <h3>Please log in first</h3>
+    <p>You need to log in to add products to the cart.</p>
+    <button (click)="closeModal()">Close</button>
+  </div>
+</div>

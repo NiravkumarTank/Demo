@@ -1,0 +1,244 @@
+<!-- 
+<div *ngIf="loadingPending" id="loading">
+  <p>Loading Pending Orders...</p>
+</div>
+<div  *ngIf="paymentInProgress" class="loading-overlay">
+  <div class="payment-loader-container">
+    <div class="payment-loader">
+      <div class="payment-circle">
+        <div class="payment-inner-circle"></div>
+        <h1>₹</h1>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+<div class="button-container">
+<button class="order-history" (click)="navigateToOrderPaid()">Order History</button>
+</div>
+
+<div *ngIf="errorMessage" class="error-message">
+<p>{{ errorMessage }}</p>
+</div>
+
+<div style="margin: 10px 22%;" *ngIf="!loadingPending && pendingOrders.length > 0">
+  <div *ngFor="let order of pendingOrders" class="order-item">
+    <img [src]="order.productImage" [alt]="order.productName" />
+    <div class="order-details">
+      <h3>Order #{{ order.orderId }}</h3>
+      <p class="product-name">{{ order.productName }}</p>
+      <p><strong>Shipping Address:</strong> {{ order.shippingAddress }}</p>
+      <p><strong>Quantity:</strong> {{ order.quantity }}</p>
+      <p><strong>Size:</strong> {{ order.shoesNumber }}</p>
+      <p><strong>Total:</strong> ₹{{ order.total }}</p>
+    </div>
+    <button class="remove-btn" (click)="removeOrder(order.orderId, order.productId)">Remove</button>
+  </div>
+</div>
+
+<div class="payment-section">
+  <h3>Total Amount</h3>
+  <table class="payment-table">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Subtotal</td>
+        <td>₹{{ subtotal }}</td>
+      </tr>
+      <tr>
+        <td>Delivery Charge</td>
+        <td>₹{{ deliveryCharge }}</td>
+      </tr>
+      <tr class="total-row">
+        <td><strong>Total Amount</strong></td>
+        <td>₹{{ totalAmount }}</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div *ngIf="showConfirmPayment">
+    <p>Are you sure you want to pay?</p>
+    <button (click)="confirmPayment()" class="payment-btn">Yes, Pay Now</button>
+    <button (click)="cancelPayment()" class="cancel-btn">Cancel</button>
+  </div>
+
+  <button *ngIf="!showConfirmPayment" [disabled]="pendingOrders.length === 0 || paymentInProgress" (click)="payNow()" class="payment-btn">Pay Now</button>
+</div> -->
+<!-- 
+<div *ngIf="loadingPending" id="loading">
+  <p>Loading Pending Orders...</p>
+</div>
+
+
+<div *ngIf="paymentInProgress" class="loading-overlay">
+  <div class="payment-loader-container">
+    <div class="payment-loader">
+      <div class="payment-circle">
+        <div class="payment-inner-circle"></div>
+        <h1>₹</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!paymentInProgress && paymentProcessed" class="success-message">
+  <p>Payment Successful!</p>
+  <button (click)="navigateToOrderPaid()">Go to Order History</button>
+</div>
+
+
+<div class="button-container">
+  <button class="order-history" (click)="navigateToOrderPaid()">Order History</button>
+</div>
+
+<div *ngIf="errorMessage" class="error-message">
+  <p>{{ errorMessage }}</p>
+</div>
+
+<div style="margin: 10px 22%;" *ngIf="!loadingPending && pendingOrders.length > 0">
+  <div *ngFor="let order of pendingOrders" class="order-item">
+    <img [src]="order.productImage" [alt]="order.productName" />
+    <div class="order-details">
+      <h3>Order #{{ order.orderId }}</h3>
+      <p class="product-name">{{ order.productName }}</p>
+      <p><strong>Shipping Address:</strong> {{ order.shippingAddress }}</p>
+      <p><strong>Quantity:</strong> {{ order.quantity }}</p>
+      <p><strong>Size:</strong> {{ order.shoesNumber }}</p>
+      <p><strong>Total:</strong> ₹{{ order.total }}</p>
+    </div>
+    <button class="remove-btn" (click)="removeOrder(order.orderId, order.productId)">Remove</button>
+  </div>
+</div>
+
+<div class="payment-section">
+  <h3>Total Amount</h3>
+  <table class="payment-table">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Subtotal</td>
+        <td>₹{{ subtotal }}</td>
+      </tr>
+      <tr>
+        <td>Delivery Charge</td>
+        <td>₹{{ deliveryCharge }}</td>
+      </tr>
+      <tr class="total-row">
+        <td><strong>Total Amount</strong></td>
+        <td>₹{{ totalAmount }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="showConfirmPayment">
+    <p>Are you sure you want to pay?</p>
+    <button (click)="confirmPayment()" class="payment-btn">Yes, Pay Now</button>
+    <button (click)="cancelPayment()" class="cancel-btn">Cancel</button>
+  </div>
+
+  <button *ngIf="!showConfirmPayment" [disabled]="pendingOrders.length === 0 || paymentInProgress" (click)="payNow()" class="payment-btn">Pay Now</button>
+</div> -->
+
+<!-- Loading Pending Orders -->
+<div *ngIf="loadingPending" id="loading">
+  <p>Loading Pending Orders...</p>
+</div>
+
+<!-- Payment In Progress (Loader) -->
+<div *ngIf="paymentInProgress" class="loading-overlay">
+  <!-- Custom Payment Loading Indicator -->
+  <div class="payment-loader-container">
+    <div class="payment-loader">
+      <div class="payment-circle">
+        <div class="payment-inner-circle"></div>
+        <h1>₹</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Success Message after Payment -->
+<div *ngIf="!paymentInProgress && paymentProcessed" class="success-message">
+  <div class="body">
+    <div class="container">
+      <div class="heading">
+        <span class="tick-container">
+          <i class="tick" style="color: green;"></i>
+        </span>
+        <span>Your payment is successful</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="button-container">
+  <button class="order-history" (click)="navigateToOrderPaid()">Order History</button>
+</div>
+
+<!-- Error Message -->
+<div *ngIf="errorMessage" class="error-message">
+  <p>{{ errorMessage }}</p>
+</div>
+
+<!-- Pending Orders List -->
+<div style="margin: 10px 22%;" *ngIf="!loadingPending && pendingOrders.length > 0">
+  <div *ngFor="let order of pendingOrders" class="order-item">
+    <img [src]="order.productImage" [alt]="order.productName" />
+    <div class="order-details">
+      <h3>Order #{{ order.orderId }}</h3>
+      <p class="product-name">{{ order.productName }}</p>
+      <p><strong>Shipping Address:</strong> {{ order.shippingAddress }}</p>
+      <p><strong>Quantity:</strong> {{ order.quantity }}</p>
+      <p><strong>Size:</strong> {{ order.shoesNumber }}</p>
+      <p><strong>Total:</strong> ₹{{ order.total }}</p>
+    </div>
+    <button class="remove-btn" (click)="removeOrder(order.orderId, order.productId)">Remove</button>
+  </div>
+</div>
+
+<!-- Payment Section -->
+<div class="payment-section">
+  <h3>Total Amount</h3>
+  <table class="payment-table">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Subtotal</td>
+        <td>₹{{ subtotal }}</td>
+      </tr>
+      <tr>
+        <td>Delivery Charge</td>
+        <td>₹{{ deliveryCharge }}</td>
+      </tr>
+      <tr class="total-row">
+        <td><strong>Total Amount</strong></td>
+        <td>₹{{ totalAmount }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Conditional Payment Buttons -->
+  <div *ngIf="showConfirmPayment">
+    <p>Are you sure you want to pay?</p>
+    <button (click)="confirmPayment()" class="payment-btn">Yes, Pay Now</button>
+    <button (click)="cancelPayment()" class="cancel-btn">Cancel</button>
+  </div>
+
+  <button *ngIf="!showConfirmPayment" [disabled]="pendingOrders.length === 0 || paymentInProgress" (click)="payNow()" class="payment-btn">Pay Now</button>
+</div>

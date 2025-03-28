@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Creation</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #main {
+            width: 100%;
+            text-align: center;
+            background-color: #000;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .admin-link {
+            margin-left: 63px;
+            font-size: x-large;
+            color: white;
+            text-decoration: none;
+        }
+
+        .admin-link a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .admin-link a:hover {
+            color: rgb(91, 241, 141);
+            text-decoration: none;
+            transition: 0.5s;
+        }
+
+        .nav__link {
+            margin-right: 46px;
+        }
+
+        .nav__link ul {
+            list-style: none;
+            gap: 40px;
+            display: flex;
+            justify-content: flex-start;
+            text-align: center;
+            padding-left: 40px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: aliceblue;
+            transition: 0.3s;
+            padding: 10px;
+            display: inline-block;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(186, 254, 231, 0.894);
+            border-radius: 10px;
+            color: #000;
+        }
+
+        .form-container {
+            background-color: white;
+            width: 30%;
+            margin: 30px auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 28px rgba(0, 0, 0, 1.1);
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-container label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: large;
+        }
+
+        .form-container input,
+        .form-container textarea {
+            width: 97%;
+            padding: 10px;
+            margin-bottom: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .form-container select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .form-container textarea {
+            height: 50px;
+        }
+
+        .form-container button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .form-container button:hover {
+            background-color: #45a049;
+        }
+
+        span {
+            color: red;
+            margin-bottom: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="main">
+        <div class="admin-link">
+            <a href="#">Admin</a>
+        </div>
+        <div id="menus">
+            <nav class="nav__link">
+                <ul>
+                    <li><a href="../homepage/indexhome.html">Home</a></li>
+                    <li><a href="../Category/Category.html">Add Category</a></li>
+                    <li><a href="#">Add Product</a></li>
+                    <li><a href="../AllUser/AllUser.html">All User</a></li>
+                    <li><a href="#" id="logoutBtn">LogOut</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <h2>Add Product</h2>
+        <form id="productForm">
+            <div>
+                <label for="Name">Product Name:</label>
+                <input type="text" id="Name" name="Name" required>
+                <span id="nameError"></span>
+            </div>
+
+            <div>
+                <label for="Description">Description:</label>
+                <textarea id="Description" name="Description"></textarea>
+                <span id="descriptionError"></span>
+            </div>
+            <div>
+                <label for="category">Category:</label>
+                <select id="category" name="Category">
+                    <option value="">Select a Category</option>
+                </select>
+                <span id="categoryError"></span>
+            </div>
+
+            <div>
+                <label for="subcategory">SubCategory:</label>
+                <select id="subcategory" name="Category">
+                    <option value="">Select a SubCategory</option>
+                </select>
+                <span id="subcategoryError"></span>
+            </div>
+
+
+            <div>
+                <label for="Price">Price:</label>
+                <input type="number" id="Price" name="Price" step="0.01">
+                <span id="priceError"></span>
+            </div>
+
+            <div>
+                <label for="Stock">Stock:</label>
+                <input type="number" id="Stock" name="Stock" min="0">
+                <span id="stockError"></span>
+            </div>
+
+            <div>
+                <label for="Image">Image URL:</label>
+                <input type="file" id="Image" name="Image">
+                <span id="ImageError"></span>
+            </div>
+
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+    $(document).ready(function () {
+     $.ajax({
+        url: 'https://localhost:7262/api/Category/CategoryShow',
+        type: 'GET',
+        success: function (response) {
+            if (response && response.length > 0) {
+                $("#category").empty();
+                $("#category").append('<option value="">Select a Category</option>');
+                response.forEach(function (category) {
+                    $("#category").append('<option value="' + category.c_Id + '">' + category.c_Name + '</option>');
+                });
+            } else {
+                console.log("No categories found.");
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log('Error:', textStatus);
+        }
+    });
+
+    $("#category").change(function () {
+        var selectedCategory = $(this).val();
+
+        if (selectedCategory) {
+            $.ajax({
+                url: 'https://localhost:7262/api/Admin/GetBySubCategory/' + selectedCategory,
+                type: 'GET',
+                success: function (response) {
+                    // console.log(response);
+                    
+                    if (response && response.length > 0) {
+                        $("#subcategory").empty();
+                        $("#subcategory").append('<option value="">Select a SubCategory</option>');
+                        response.forEach(function (subcategory) {
+                            $("#subcategory").append('<option value="' + subcategory.sc_id + '">' + subcategory.sc_Name + '</option>');
+                        });
+                    } else {
+                        console.log("No subcategories found for this category.");
+                        $("#subcategory").empty().append('<option value="">No subcategories available</option>');
+                    }
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log('Error:', textStatus);
+                }
+            });
+        } else {
+            $("#subcategory").empty().append('<option value="">Select a SubCategory</option>');
+        }
+    });
+
+    // Handle logout
+    $("#logoutBtn").click(function () {
+        sessionStorage.clear();
+        window.location.href = "../Login/Login.html";
+    });
+
+    // Form validation
+    function validateFields() {
+        var Name = $("#Name").val();
+        var Description = $("#Description").val();
+        var Category = $("#category").val();
+        var SubCategory = $("#subcategory").val();
+        var Price = $("#Price").val();
+        var Stock = $("#Stock").val();
+        var Image = $("#Image")[0].files[0];
+
+        $("#nameError").text("");
+        $("#descriptionError").text("");
+        $("#categoryError").text("");
+        $("#subcategoryError").text("");
+        $("#priceError").text("");
+        $("#stockError").text("");
+        $("#ImageError").text("");
+
+        var isValid = true;
+
+        if (Name == "" || Name == null) {
+            $("#nameError").text("Product Name is required.");
+            isValid = false;
+        }
+
+        if (Description == "" || Description == null) {
+            $("#descriptionError").text("Product Description is required.");
+            isValid = false;
+        }
+
+        if (Category == "" || Category == null) {
+            $("#categoryError").text("Product Category is required.");
+            isValid = false;
+        }
+        if (SubCategory == "" || SubCategory == null) {
+            $("#subcategoryError").text("Product SubCategory is required.");
+            isValid = false;
+        }
+
+        if (Price == "" || Price == null) {
+            $("#priceError").text("Product Price is required.");
+            isValid = false;
+        }
+
+        if (Stock == "" || Stock == null) {
+            $("#stockError").text("Product Stock is required.");
+            isValid = false;
+        }
+
+        if (Image == "" || Image == null) {
+            $("#ImageError").text("Product Image is required.");
+            isValid = false;
+        }
+        return isValid;
+    }
+
+    // Submit form
+    $('#productForm').submit(function (event) {
+        event.preventDefault();
+
+        if (!validateFields()) {
+            return;
+        }
+        
+        var Name = $("#Name").val();
+        var Description = $("#Description").val();
+        var Category = $("#category").val();
+        var SubCategory = $("#subcategory").val();
+        var Price = $("#Price").val();
+        var Stock = $("#Stock").val();
+        var Image = $("#Image")[0].files[0];
+
+        var formdata1 = new FormData();
+        formdata1.append("Name", Name);
+        formdata1.append("Description", Description);
+        formdata1.append("c_id", Category);
+        formdata1.append("sc_id", SubCategory);
+        formdata1.append("Price", Price);
+        formdata1.append("Stock", Stock);
+        formdata1.append("Image", Image);
+
+        $.ajax({
+            url: 'https://localhost:7262/api/Admin/AddProduct',
+            type: 'POST',
+            data: formdata1,
+            processData: false,
+            contentType: false,
+            success: function (response) {
+                console.log(response.data);
+                
+                alert(response.message);
+                window.location.href = "../homepage/indexhome.html";
+            },
+            error: function (xhr, status, error) {
+                console.log(xhr.responseText);
+            }
+        });
+    });
+});
+
+    </script>
+
+</body>
+
+</html>

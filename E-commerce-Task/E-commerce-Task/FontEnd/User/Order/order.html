@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pending Orders</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        #main {
+            width: 100%;
+            text-align: center;
+            background-color: #000;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+        }
+
+        .admin-link {
+            margin-left: 63px;
+            font-size: x-large;
+            color: white;
+            text-decoration: none;
+        }
+
+        .admin-link a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .admin-link a:hover {
+            color: rgb(91, 241, 141);
+            text-decoration: none;
+            transition: 0.5s;
+        }
+
+        .nav__link {
+            margin-right: 46px;
+        }
+
+        .nav__link ul {
+            list-style: none;
+            gap: 40px;
+            display: flex;
+            justify-content: flex-start;
+            text-align: center;
+            padding-left: 40px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: aliceblue;
+            transition: 0.3s;
+            padding: 10px;
+            display: inline-block;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(186, 254, 231, 0.894);
+            border-radius: 10px;
+            color: #000;
+        }
+
+        /* Order List Styling */
+        .order-list,
+        .paid-order-list {
+            padding: 20px;
+            background-color: #fff;
+            margin: 20px auto;
+            width: 80%;
+            border-radius: 5px;
+        }
+
+        /* Cart Item Style */
+        .order-item,
+        .paid-order-item {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .order-item img,
+        .paid-order-item img {
+            width: 100px;
+            height: 100px;
+            margin-right: 20px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .order-item .order-details,
+        .paid-order-item .order-details {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .order-item .order-details h3,
+        .paid-order-item .order-details h3 {
+            margin: 0;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .order-item .order-details p,
+        .paid-order-item .order-details p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .order-item .order-details .product-name,
+        .paid-order-item .order-details .product-name {
+            font-weight: bold;
+        }
+
+        .remove-btn {
+            border: none;
+            color: white;
+            font-size: 19px;
+            cursor: pointer;
+            padding: 0;
+            margin-left: 15px;
+            background-color: red;
+            padding: 8px;
+            border-radius: 6px;
+        }
+
+        .remove-btn:hover {
+            background-color: rgba(219, 10, 10, 0.975);
+            color: white;
+        }
+
+        /* Payment Section Styling */
+        .payment-section {
+            background-color: #fff;
+            padding: 20px;
+            width: 80%;
+            margin: 20px auto;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .payment-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .payment-table th,
+        .payment-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .payment-table th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
+
+        .total-row {
+            font-weight: bold;
+        }
+
+        .payment-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .payment-btn:hover {
+            background-color: #45a049;
+        }
+
+        /* Layout for Paid Orders */
+        #paidOrdersSection {
+            margin-top: 30px;
+        }
+
+        #paidOrderList {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        #loading {
+            text-align: center;
+            font-size: 18px;
+        }
+
+        /* Hide Pay Button When No Pending Orders */
+        #payButton {
+            display: none;
+        }
+
+        #PdfGenarate {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #PdfGenarate:hover {
+            background-color: #45a049;
+            transition: background-color 0.3s ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <div class="admin-link">
+            <a href="#">Order</a>
+        </div>
+        <div id="menus">
+            <nav class="nav__link">
+                <ul>
+                    <li><a href="../UserHomePage/UserHomePage.html">Home</a></li>
+                    <li><a href="../Cart/Cart.html">Cart</a></li>
+                    <li><a href="#">Order</a></li>
+                    <li><a href="../Profile/profile.html">Profile</a></li>
+                    <li><a href="#" id="logoutBtn">LogOut</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="order-list" id="orderList">
+        <h2>Pending Orders</h2>
+        <div id="loading">Loading...</div>
+    </div>
+
+    <div class="payment-section" id="paymentSection">
+        <h3>Total Amount</h3>
+        <table class="payment-table">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Subtotal</td>
+                    <td>₹<span id="subtotal">0.00</span></td>
+                </tr>
+                <tr>
+                    <td>Delivery Charge</td>
+                    <td>₹<span id="deliveryCharge">0.00</span></td>
+                </tr>
+                <tr class="total-row">
+                    <td><strong>Total Amount</strong></td>
+                    <td>₹<span id="totalAmount">0.00</span></td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="payment-btn" id="payButton">Pay Now</button>
+        <button id="PdfGenarate" style="display:none;">Generate Invoice</button>
+
+        <!-- Paid Orders Section -->
+        <div id="paidOrdersSection">
+            <h3>Paid Orders</h3>
+            <div id="paidOrderList"></div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            var userId = sessionStorage.getItem("UserId");
+            var fname = sessionStorage.getItem("FirstName");
+
+            if (!userId || !fname) {
+                window.location.href = "../Login/Login.html";
+            }
+
+            let subtotal = 0;
+            let deliveryCharge = 10;
+            let totalAmount = 0;
+
+            function fetchPendingOrders() {
+                $.ajax({
+                    url: `https://localhost:7262/api/Order/GetPendingOrders?userId=${userId}`,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (response) {
+                        $('#loading').hide();
+
+
+                        if (response && response.length > 0) {
+                            let orderHtml = '';
+                            response.forEach(function (order) {
+                                orderHtml += `
+                                    <div class="order-item" data-order-id="${order.orderId}">
+                                        <img src="${order.productImage}" alt="${order.productName}">
+                                        <div class="order-details">
+                                            <h3>Order #${order.orderId}</h3>
+                                            <p class="product-name">${order.productName}</p>
+                                            <p><strong>Shipping Address:</strong> ${order.shippingAddress}</p>
+                                            <p><strong>Quantity:</strong> ${order.quantity}</p>
+                                            <p><strong>Total:</strong> ₹${order.total}</p>
+                                        </div>
+                                        <button class="remove-btn" data-order-id="${order.orderId}" data-product-id="${order.productId}">Remove</button>
+                                    </div>
+                                `;
+                                subtotal += order.total;
+                            });
+                            $('#orderList').html(orderHtml);
+                            updateTotalAmount();
+                            $('#payButton').show();
+                            $('#PdfGenarate').hide();
+                        } else {
+                            $('#orderList').html('<p>No Pending Orders.</p>');
+                            $('#PdfGenarate').show();
+                        }
+                    },
+                    error: function () {
+                        $('#loading').hide();
+                        $('#orderList').html('<p>There was an error fetching your orders.</p>');
+                    }
+                });
+            }
+
+            function fetchPaidOrders() {
+                $.ajax({
+                    url: `https://localhost:7262/api/Order/GetPaidOrders?userId=${userId}`,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (response) {
+                        // console.log(response);
+                        
+                        $('#loading').hide();
+                        if (response && response.length > 0) {
+                            let paidOrderHtml = '';
+                            response.forEach(function (order) {
+                                paidOrderHtml += `
+                                    <div class="paid-order-item" data-order-id="${order.orderId}">
+                                        <img src="${order.productImage}" alt="${order.productName}">
+                                        <div class="order-details">
+                                            <h3>Order #${order.orderId}</h3>
+                                            <p class="product-name">${order.productName}</p>
+                                            <p><strong>Status:</strong> ${order.status}</p>
+                                            <p><strong>Shipping Address:</strong> ${order.shippingAddress}</p>
+                                            <p><strong>Quantity:</strong> ${order.quantity}</p>
+                                            <p><strong>Total:</strong> ₹${order.total}</p>
+                                        </div>
+                                    </div>
+                                `;
+                            });
+                            $('#paidOrderList').html(paidOrderHtml);
+                        } else {
+                            $('#paidOrderList').html('<p>No paid orders found.</p>');
+                        }
+                    },
+                    error: function () {
+                        $('#loading').hide();
+                        $('#paidOrderList').html('<p>There was an error fetching your paid orders.</p>');
+                    }
+                });
+            }
+
+            function updateTotalAmount() {
+                totalAmount = subtotal + deliveryCharge;
+                $('#subtotal').text(subtotal.toFixed(2));
+                $('#deliveryCharge').text(deliveryCharge.toFixed(2));
+                $('#totalAmount').text(totalAmount.toFixed(2));
+            }
+
+            $(document).on('click', '.remove-btn', function () {
+                var orderId = $(this).data('order-id');
+                var productId = $(this).data('product-id');
+
+                $.ajax({
+                    url: `https://localhost:7262/api/Order/RemoveOrder?orderId=${orderId}&productId=${productId}`,
+                    type: 'DELETE',
+                    success: function () {
+                        // console.log(`Order #${orderId} with Product #${productId} removed successfully.`);
+                        $(this).closest('.order-item').remove();
+                        subtotal -= parseFloat($(this).closest('.order-item').find('.total').text());
+                        updateTotalAmount();
+                    },
+                    error: function () {
+                        alert('Error removing order');
+                    }
+                });
+            });
+
+            $(document).on('click', '#payButton', function () {
+                var confirmPayment = confirm('Do you want to Payment?');
+
+                if (confirmPayment) {
+                    $('#paymentSection').html('<h3>Payment processing...</h3>');
+
+                    setTimeout(function () {
+                        var userId = sessionStorage.getItem("UserId");
+
+                        if (!userId) {
+                            alert("User is not logged in.");
+                            return;
+                        }
+
+                        var paymentData = {
+                            userId: userId
+                        };
+
+                        $.ajax({
+                            url: `https://localhost:7262/api/Payment/createpayment/${userId}`,
+                            type: 'POST',
+                            contentType: 'application/json',
+                            success: function (response) {
+
+                                alert('Payment successful!');
+                                
+                                $('#payButton').hide(); 
+                                $('#PdfGenarate').show(); 
+                                window.location.reload();
+                            },
+                            error: function () {
+                                alert('There was an error processing the payment. Please try again.');
+                            }
+                        });
+                    }, 2000); 
+                } else {
+                    alert('Payment was cancelled.');
+                }
+            });
+
+
+            $("#PdfGenarate").click(function () {
+                var url = `https://localhost:7262/api/Cart/PdfGenerate/${userId}`
+                window.location.href = url;
+            })
+
+            fetchPendingOrders();
+            fetchPaidOrders();
+        });
+    </script>
+</body>
+
+</html>

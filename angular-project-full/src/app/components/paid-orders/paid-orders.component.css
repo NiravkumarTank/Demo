@@ -1,0 +1,201 @@
+/* Loading State */
+#loading {
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+}
+
+/* Error Message Styling */
+.error-message {
+    color: red;
+    text-align: center;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+/* Success Message Styling */
+.success-message {
+    color: green;
+    text-align: center;
+    font-size: 18px;
+    margin-top: 20px;
+    animation: fadeOut 3s ease-out forwards;
+  }
+  
+  /* Optional: Adding fade-out animation */
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+
+/* Paid Order Item Styling */
+.order-item {
+    display: flex;
+    background-color: white;
+    margin: 15px 0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.order-item img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.order-details {
+    flex-grow: 1;
+    margin-left: 20px;
+}
+
+.order-details h3 {
+    font-size: 18px;
+    color: #333;
+    margin: 5px 0;
+}
+
+.product-name {
+    font-size: 16px;
+    color: #777;
+}
+
+.order-details p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.payment-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    margin: 15px 5px;
+}
+
+.payment-btn:hover {
+    background-color: #45a049;
+}
+
+.no-orders-message {
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+}
+
+h2 {
+    text-align: center;
+    margin: 44px auto;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px 22%;
+}
+
+.order-history {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.order-history:hover {
+    background-color: #45a049;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .order-item {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .order-details {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .remove-btn {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+/* Overlay styles */
+.review-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.review-modal {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+}
+
+textarea {
+    width: 94%;
+    height: 150px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Button Styling */
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Remove button */
+button.remove-btn {
+    background-color: red;
+}
+
+button.remove-btn:hover {
+    background-color: darkred;
+}

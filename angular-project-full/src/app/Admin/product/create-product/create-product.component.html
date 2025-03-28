@@ -1,0 +1,57 @@
+<div class="form-container">
+    <h2>Add Product</h2>
+    <form (ngSubmit)="onSubmit()" #productForm="ngForm">
+        
+        <div>
+            <label for="Name">Product Name:</label>
+            <input type="text" id="Name" [(ngModel)]="product.name" name="name" required #name="ngModel">
+            <span *ngIf="name.touched && name.invalid" class="error">{{ nameError || 'Product Name is required' }}</span>
+        </div>
+
+        <div>
+            <label for="Description">Description:</label>
+            <textarea id="Description" [(ngModel)]="product.description" name="description" required #description="ngModel"></textarea>
+            <span *ngIf="description.touched && description.invalid" class="error">{{ descriptionError || 'Description is required' }}</span>
+        </div>
+
+        <div>
+            <label for="category">Category:</label>
+            <select id="category" [(ngModel)]="product.category" name="category" required (change)="onCategoryChange()" #category="ngModel">
+                <option value="">Select a Category</option>
+                <option *ngFor="let category of categories" [value]="category.c_Id">{{ category.c_Name }}</option>
+            </select>
+            <span *ngIf="category.touched && category.invalid" class="error">{{ categoryError || 'Category is required' }}</span>
+        </div>
+
+        <div>
+            <label for="subcategory">SubCategory:</label>
+            <select id="subcategory" [(ngModel)]="product.subcategory" name="subcategory" required #subcategory="ngModel">
+                <option value="">Select a SubCategory</option>
+                <option *ngFor="let subcategory of subcategories" [value]="subcategory.sc_id">{{ subcategory.sc_Name }}</option>
+            </select>
+            <span *ngIf="subcategory.touched && subcategory.invalid" class="error">{{ subcategoryError || 'Subcategory is required' }}</span>
+        </div>
+
+        <div>
+            <label for="Price">Price:</label>
+            <input type="number" id="Price" [(ngModel)]="product.price" name="price" required step="0.01" #price="ngModel">
+            <span *ngIf="price.touched && price.invalid" class="error">{{ priceError || 'Price is required' }}</span>
+        </div>
+
+        <div>
+            <label for="Stock">Stock:</label>
+            <input type="number" id="Stock" [(ngModel)]="product.stock" name="stock" required min="0" #stock="ngModel">
+            <span *ngIf="stock.touched && stock.invalid" class="error">{{ stockError || 'Stock is required' }}</span>
+        </div>
+
+        <div>
+            <label for="Image">Image URL:</label>
+            <input type="file" id="Image" (change)="onFileSelect($event)" required>
+            <span *ngIf="imageError" class="error">{{ imageError || 'Image is required' }}</span>
+        </div>
+
+        <div>
+            <button type="submit" [disabled]="!productForm.valid">Submit</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,28 @@
+
+
+
+  
+  <table id="dataTable">
+
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Gender</th>
+        <th>Number</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let users of filteredusers">
+        <td>{{ users.firstName }} {{ users.lastName }}</td>
+        <td>{{ users.email }}</td>
+        <td>{{ users.gender }}</td>
+        <td>{{ users.phoneNumber }}</td>
+        <td>
+          <button (click)="deleteuser(users.userId)" class="delete-btn">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  

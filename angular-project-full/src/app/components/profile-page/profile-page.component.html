@@ -1,0 +1,42 @@
+<div class="profile-container">
+    <h1>User Profile</h1>
+
+    <div *ngIf="user">
+        <!-- Display profile information -->
+        <div class="profile-info">
+            <div>
+                <strong>Name:</strong>
+                <span *ngIf="!isEditing">{{ user.firstName }} {{ user.lastName }}</span>
+                <input *ngIf="isEditing" [(ngModel)]="user.firstName" />
+                <input *ngIf="isEditing" [(ngModel)]="user.lastName" />
+            </div>
+            <div>
+                <strong>Email:</strong>
+                <span *ngIf="!isEditing">{{ user.email }}</span>
+                <input *ngIf="isEditing" [(ngModel)]="user.email" readonly />
+            </div>
+            <div>
+                <strong>Phone Number:</strong>
+                <span *ngIf="!isEditing">{{ user.phoneNumber }}</span>
+                <input *ngIf="isEditing" [(ngModel)]="user.phoneNumber" />
+            </div>
+            <div>
+                <strong>Gender:</strong>
+                <span *ngIf="!isEditing">{{ user.gender }}</span>
+                <select *ngIf="isEditing" [(ngModel)]="user.gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+
+        </div>
+
+        <!-- Show the Edit button and Save button -->
+        <div class="buttons">
+            <button *ngIf="!isEditing" (click)="toggleEdit()">Edit</button>
+            <button *ngIf="isEditing" (click)="saveProfile()">Save</button>
+        </div>
+    </div>
+
+    <div *ngIf="!user">Loading user data...</div>
+</div>

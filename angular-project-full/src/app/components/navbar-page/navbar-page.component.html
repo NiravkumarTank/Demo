@@ -1,0 +1,87 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a routerLink="/home"><img src="Image/logo.jpg" alt="Logo"  />
+              <span>juta.com</span></a>  
+            </div>
+
+            <ul class="nav-items">
+                <li class="home"><a routerLink="home">Home</a></li>
+                <li class="home"><a routerLink="shose-logos">shose-logos</a></li>
+                <li class="dropdown">
+                    <a>Category</a>
+                    <ul class="dropdown-content">
+                        <li><a routerLink="category/man-category">Man</a></li>
+                        <li><a routerLink="category/woman-category">Woman</a></li>
+                        <li><a routerLink="category/children-category">Children</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="auth-block">
+                <a *ngIf="!isLoggedIn" routerLink="login" class="login-btn">Login</a>
+                <a *ngIf="!isLoggedIn" routerLink="register" class="register-btn">Register</a>            
+                <a *ngIf="isLoggedIn" routerLink="cart" class="cart-btn">Cart</a>
+                <a *ngIf="isLoggedIn" routerLink="order" class="order-btn">Order</a>
+                <a *ngIf="isLoggedIn" (click)="logout()" class="logout-btn">Logout</a>
+            </div>
+        </nav>
+    </header>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="Image/logo.jpg" alt="Logo"  />
+                <a routerLink="/home">
+              <span>juta.com</span></a>  
+            </div>
+
+            <ul class="nav-items">
+                <li class="home"><a routerLink="home">Home</a></li>
+                
+                <li class="dropdown">
+                    <a>Category</a>
+                    <ul class="dropdown-content">
+                        <li><a routerLink="category/man-category">Men</a></li>
+                        <li><a routerLink="category/woman-category">Women</a></li>
+                        <li><a routerLink="category/children-category">Kids</a></li>
+                    </ul>
+                </li>
+                <li class="home"><a routerLink="about">About us</a></li>
+            </ul>
+
+            <div class="auth-block">
+                <a *ngIf="!isLoggedIn" routerLink="login" class="login-btn">Login</a>
+                <!-- <a *ngIf="!isLoggedIn" routerLink="register" class="register-btn">Register</a>             -->
+                <!-- <a *ngIf="isLoggedIn" routerLink="cart" class="cart-btn">Cart</a> -->
+
+                <a *ngIf="isLoggedIn" routerLink="cart" class="cart-btn">Cart ({{ cartItemCount }})</a>
+                <a *ngIf="isLoggedIn" routerLink="profile" class="order-btn">Profile</a>
+                <a *ngIf="isLoggedIn" (click)="logout()" class="logout-btn">Logout</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Wrapper for the content -->
+  
+</body>
+</html>

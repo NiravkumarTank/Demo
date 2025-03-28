@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Creation</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #main {
+            width: 100%;
+            text-align: center;
+            background-color: #000;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .admin-link {
+            margin-left: 63px;
+            font-size: x-large;
+            color: white;
+            text-decoration: none;
+        }
+
+        .admin-link a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .admin-link a:hover {
+            color: rgb(91, 241, 141);
+            text-decoration: none;
+            transition: 0.5s;
+        }
+
+        .nav__link {
+            margin-right: 46px;
+        }
+
+        .nav__link ul {
+            list-style: none;
+            gap: 40px;
+            display: flex;
+            justify-content: flex-start;
+            text-align: center;
+            padding-left: 40px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: aliceblue;
+            transition: 0.3s;
+            padding: 10px;
+            display: inline-block;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(186, 254, 231, 0.894);
+            border-radius: 10px;
+            color: #000;
+        }
+
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .delete-btn {
+            padding: 6px 12px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .delete-btn:hover {
+            background-color: darkred;
+        }
+
+        img {
+            max-width: 100px;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <div class="admin-link">
+            <a href="#">Admin</a>
+        </div>
+        <div id="menus">
+            <nav class="nav__link">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="../Category/Category.html">Add Category</a></li>
+                    <li><a href="../Product/index.html">Add Product</a></li>
+                    <li><a href="../AllUser/AllUser.html">All User</a></li>
+                    <li><a href="#" id="logoutBtn">LogOut</a></li>
+                </ul>
+
+            </nav>
+        </div>
+    </div>
+
+
+    <table id="dataTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Subcategory</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Image</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+    </table>
+    <script>
+
+        $("#logoutBtn").click(function () {
+            sessionStorage.clear();
+            window.location.href = "../../User/Login/Login.html";
+        });
+
+        $.get("https://localhost:7262/api/Admin/ShowAllProduct", function (data, status) {
+            var tableBody = $("#tableBody");
+            tableBody.empty();
+            // console.log(data);
+
+            console.log(data);
+            
+            if (data && data.length > 0) {
+                data.forEach(function (item) {
+                    var row = "<tr>" +
+                        "<td>" + item.name + "</td>" +
+                        "<td>" + item.description + "</td>" +
+                        "<td>" + item.category + "</td>" +
+                        "<td>" + item.subcategory + "</td>" +
+                        "<td>" + item.price + "</td>" +
+                        "<td>" + item.stock + "</td>" +
+                        "<td>" + `<img src="${item.imageUrl}" alt="${item.name}">` + "</td>" +
+                        "<td><button class='delete-btn' data-id=" + item.productId + ">Delete</button></td>" +
+                        "</tr>";
+                    tableBody.append(row);
+                });
+            } else {
+                tableBody.append("<tr><td colspan='7'>No data available</td></tr>");
+            }
+
+
+
+        });
+
+        $(document).on('click', ".delete-btn", function () {
+            var id = $(this).data('id');
+            console.log(id);
+
+            $.ajax({
+                url: `https://localhost:7262/api/Admin/DeleteById/${id}`,
+                type: "DELETE",
+                success: function (response) {
+                    alert(" data deleted..");
+                    window.location.reload();
+                },
+                error: function (x, status, error) {
+                    console.log(error);
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+.contenar{
+    margin: 3% 7%;
+    border-radius: 8px;
+    margin-top: 130px;
+}
+.about-us-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 20px; */
+    padding: 4% 4%;
+    background-color: #edebe9;
+    margin: 10px;
+    border-radius: 15px;
+  }
+  
+  .content {
+    width: 50%;
+    padding: 20px;
+
+  }
+  
+  .image {
+    width: 45%;
+    text-align: center;
+  }
+  
+  .image img {
+    width: 90%;
+    height: auto;
+    /* border-radius: 15px; */
+  }
+  
+  h1 {
+    font-size: 36px;
+    color: #333;
+    padding-bottom: 13px;
+    line-height: 2;
+    letter-spacing: 4px;
+  }
+  
+  p {
+    font-size: 18px;
+    color: #555;
+    line-height: 2;
+    letter-spacing: 1px;
+    word-spacing: 1px;
+  }
+  

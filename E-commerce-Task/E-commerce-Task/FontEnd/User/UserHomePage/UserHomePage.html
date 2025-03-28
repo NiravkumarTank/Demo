@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Home</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        /* Add your CSS here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        #main {
+            width: 100%;
+            text-align: center;
+            background-color: #000;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+          
+        }
+
+        .User-link {
+            margin-left: 63px;
+            font-size: x-large;
+            color: white;
+            text-decoration: none;
+        }
+
+        .User-link a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .User-link a:hover {
+            color: rgb(91, 241, 141);
+            text-decoration: none;
+            transition: 0.5s;
+        }
+
+        .nav__link {
+            margin-right: 46px;
+        }
+
+        .nav__link ul {
+            list-style: none;
+            gap: 40px;
+            display: flex;
+            justify-content: flex-start;
+            text-align: center;
+            padding-left: 40px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: aliceblue;
+            transition: 0.3s;
+            padding: 10px;
+            display: inline-block;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(186, 254, 231, 0.894);
+            border-radius: 10px;
+            color: #000;
+        }
+
+        #productCards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background-color: white;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .card img {
+            width: 100%;
+            height: 250px;
+            border-radius: 8px;
+        }
+
+        .card h3 {
+            margin-top: 10px;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: #777;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+
+        .add-to-cart-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #45a049;
+        }
+
+        .no-products-message {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #e74c3c;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <div class="User-link">
+            <a href="#" id="userNamelLink"></a>
+        </div>
+        <div id="menus">
+            <nav class="nav__link">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="../Cart/Cart.html">Cart</a></li>
+                    <li><a href="../Profile/profile.html">Profile</a></li>
+                    <li><a href="#" id="logoutBtn">LogOut</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div id="productCards"></div>
+
+    <script>
+        $(document).ready(function () {
+
+            var userId = sessionStorage.getItem("UserId");
+            var fname = sessionStorage.getItem("FirstName");
+
+            if (!userId || !fname) {
+                window.location.href = "../Login/Login.html";
+            }
+
+            $("#userNamelLink").text(fname);
+
+            $.get("https://localhost:7262/api/Admin/ShowAllProduct", function (data, status) {
+                var cardContainer = $("#productCards");
+                cardContainer.empty();
+
+                if (data && data.length > 0) {
+                    data.forEach(function (item) {
+                        var card = "<div class='card'>" +
+                            "<img src='" + item.imageUrl + "' alt='" + item.name + "'>" +
+                            "<h3>" + item.name + "</h3>" +
+                            "<p>Description: " + item.description + "</p>" +
+                            "<p>Category: " + item.category + "</p>" +
+                            "<p>Stock: " + item.stock + "</p>" +
+                            "<p>Price: <span class='price'>₹" + item.price + "</span></p>";
+
+                        if (item.stock > 0) {
+                            card += "<button class='add-to-cart-btn' data-id='" + item.productId + "'>Add to Cart</button>";
+                        } else {
+                            card += "<button class='add-to-cart-btn' disabled>Out of Stock</button>";
+                        }
+
+                        card += "</div>";
+                        cardContainer.append(card);
+                    });
+                } else {
+                    cardContainer.append("<h1 class='no-products-message'>No products available</h1>");
+                }
+            });
+
+            $("#logoutBtn").click(function () {
+                sessionStorage.clear();
+                window.location.href = "../Login/Login.html";
+            });
+
+            $(document).on('click', '.add-to-cart-btn', function () {
+                if ($(this).prop('disabled')) {
+                    return;
+                }
+
+                var productId = $(this).data('id');
+                var userId = sessionStorage.getItem("UserId");
+
+                var formData = new FormData();
+                formData.append("ProductId", productId);
+                formData.append("UserId", userId);
+
+                $.ajax({
+                    url: "https://localhost:7262/api/Cart/AddToCart",
+                    type: "POST",
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                        window.location.reload();
+                    },
+                    error: function (xhr, status, error) {
+                        alert('Error: ' + error);
+                    }
+                });
+            });
+
+        });
+    </script>
+</body>
+
+</html>

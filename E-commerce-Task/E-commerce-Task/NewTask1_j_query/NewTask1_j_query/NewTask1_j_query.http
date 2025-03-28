@@ -1,0 +1,6 @@
+@NewTask1_j_query_HostAddress = http://localhost:5130
+
+GET {{NewTask1_j_query_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

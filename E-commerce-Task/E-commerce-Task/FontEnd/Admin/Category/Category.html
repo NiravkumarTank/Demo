@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Creation</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #main {
+            width: 100%;
+            text-align: center;
+            background-color: #000;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .admin-link {
+            margin-left: 63px;
+            font-size: x-large;
+            color: white;
+            text-decoration: none;
+        }
+
+        .admin-link a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .admin-link a:hover {
+            color: rgb(91, 241, 141);
+            text-decoration: none;
+            transition: 0.5s;
+        }
+
+        .nav__link {
+            margin-right: 46px;
+        }
+
+        .nav__link ul {
+            list-style: none;
+            gap: 40px;
+            display: flex;
+            justify-content: flex-start;
+            text-align: center;
+            padding-left: 40px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: aliceblue;
+            transition: 0.3s;
+            padding: 10px;
+            display: inline-block;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(186, 254, 231, 0.894);
+            border-radius: 10px;
+            color: #000;
+        }
+
+        .form-container {
+            background-color: white;
+            width: 30%;
+            margin: 30px auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 28px rgba(0, 0, 0, 1.1);
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-container label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: large;
+        }
+
+        .form-container input,
+        .form-container select {
+            width: 97%;
+            padding: 10px;
+            margin-bottom: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .form-container textarea {
+            height: 50px;
+        }
+
+        .form-container button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .form-container button:hover {
+            background-color: #45a049;
+        }
+
+        span {
+            color: red;
+            margin-bottom: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="main">
+        <div class="admin-link">
+            <a href="#">Admin</a>
+        </div>
+        <div id="menus">
+            <nav class="nav__link">
+                <ul>
+                    <li><a href="../homepage/indexhome.html">Home</a></li>
+                    <li><a href="#">Add Category</a></li>
+                    <li><a href="../Product/index.html">Add Product</a></li>
+                    <li><a href="../AllUser/AllUser.html">All User</a></li>
+                    <li><a href="#" id="logoutBtn">LogOut</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <h2>Add Category</h2>
+        <form id="categoryForm">
+            <div>
+                <label for="category">Category:</label>
+                <select id="category" name="Category">
+                    <option value="">Select a Category</option>
+                </select>
+                <span id="categoryError"></span>
+            </div>
+
+            <div>
+                <label for="sc_Name">SubCategory:</label>
+                <input type="text" id="sc_Name" name="sc_Name">
+                <span id="categoryError"></span>
+            </div>
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script>  
+    $(document).ready(function () {
+    $("#logoutBtn").click(function () {
+        sessionStorage.clear();
+        window.location.href = "../../User/Login/Login.html";
+    });
+
+   
+        $.ajax({
+            url: 'https://localhost:7262/api/Category/CategoryShow',
+            type: 'GET',
+            success: function (response) {
+                
+                if (response && response.length > 0) {
+                    var categoryDropdown = $("#category");
+                    categoryDropdown.empty();
+                    categoryDropdown.append('<option value="">Select a Category</option>');
+                    
+                    response.forEach(function (category) {
+                        categoryDropdown.append('<option value="' + category.c_Id + '">' + category.c_Name + '</option>');
+                    });
+                } else {
+                    console.log("No categories found.");
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log('Error fetching categories:', textStatus);
+            }
+        });
+   
+
+    function validateFields() {
+        var SubCategory = $("#sc_Name").val();
+        $("#categoryError").text("");
+        var isValid = true;
+        if (SubCategory == "" || SubCategory == null) {
+            $("#categoryError").text("SubCategory is required.");
+            isValid = false;
+        }
+        return isValid;
+    }
+
+    $("#categoryForm").submit(function (e) {
+        e.preventDefault();
+
+        if (!validateFields()) {
+            return;
+        }
+
+        var subcategoryName = $("#sc_Name").val();
+        var selectedCategoryId = $("#category").val();
+
+        if (!selectedCategoryId) {
+            alert("Please select a category.");
+            return;
+        }
+
+        var formdata = new FormData();
+        formdata.append("sc_Name", subcategoryName);
+        formdata.append("c_id", selectedCategoryId); 
+
+    
+        $.ajax({
+            url: 'https://localhost:7262/api/Category/SubCategoryAdd',
+            type: 'POST',
+            data: formdata,
+            contentType: false,
+            processData: false,
+            success: function (response) {
+                alert('Category added successfully!');
+                window.location.href = "../homepage/indexhome.html";
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log('Error:', textStatus);
+            }
+        });
+    });
+});
+
+    </script>
+
+</body>
+
+</html>

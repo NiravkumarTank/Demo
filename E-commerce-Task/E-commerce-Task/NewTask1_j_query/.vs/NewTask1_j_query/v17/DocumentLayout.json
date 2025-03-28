@@ -1,0 +1,405 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|d:\\nirav\\angulr\\full-project\\e-commerce-task\\e-commerce-task\\newtask1_j_query\\newtask1_j_query\\models\\user\\ordertable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|solutionrelative:newtask1_j_query\\models\\user\\ordertable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|d:\\nirav\\angulr\\full-project\\e-commerce-task\\e-commerce-task\\newtask1_j_query\\newtask1_j_query\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|solutionrelative:newtask1_j_query\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|d:\\nirav\\angulr\\full-project\\e-commerce-task\\e-commerce-task\\newtask1_j_query\\newtask1_j_query\\models\\admin\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|solutionrelative:newtask1_j_query\\models\\admin\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|d:\\nirav\\angulr\\full-project\\e-commerce-task\\e-commerce-task\\newtask1_j_query\\newtask1_j_query\\models\\admin\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|solutionrelative:newtask1_j_query\\models\\admin\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|d:\\nirav\\angulr\\full-project\\e-commerce-task\\e-commerce-task\\newtask1_j_query\\newtask1_j_query\\models\\admin\\subcategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|solutionrelative:newtask1_j_query\\models\\admin\\subcategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|d:\\nirav\\angulr\\full-project\\e-commerce-task\\e-commerce-task\\newtask1_j_query\\newtask1_j_query\\controllers\\user\\forgotpasswordcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|solutionrelative:newtask1_j_query\\controllers\\user\\forgotpasswordcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|d:\\nirav\\angulr\\full-project\\e-commerce-task\\e-commerce-task\\newtask1_j_query\\newtask1_j_query\\controllers\\user\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|solutionrelative:newtask1_j_query\\controllers\\user\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|d:\\nirav\\angulr\\full-project\\e-commerce-task\\e-commerce-task\\newtask1_j_query\\newtask1_j_query\\controllers\\user\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|solutionrelative:newtask1_j_query\\controllers\\user\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|d:\\nirav\\angulr\\full-project\\e-commerce-task\\e-commerce-task\\newtask1_j_query\\newtask1_j_query\\controllers\\user\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|solutionrelative:newtask1_j_query\\controllers\\user\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|d:\\nirav\\angulr\\full-project\\e-commerce-task\\e-commerce-task\\newtask1_j_query\\newtask1_j_query\\models\\user\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|solutionrelative:newtask1_j_query\\models\\user\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|d:\\nirav\\angulr\\full-project\\e-commerce-task\\e-commerce-task\\newtask1_j_query\\newtask1_j_query\\controllers\\user\\reviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|solutionrelative:newtask1_j_query\\controllers\\user\\reviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|d:\\nirav\\angulr\\full-project\\e-commerce-task\\e-commerce-task\\newtask1_j_query\\newtask1_j_query\\controllers\\admin\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|solutionrelative:newtask1_j_query\\controllers\\admin\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|d:\\nirav\\angulr\\full-project\\e-commerce-task\\e-commerce-task\\newtask1_j_query\\newtask1_j_query\\models\\dtos\\productupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|solutionrelative:newtask1_j_query\\models\\dtos\\productupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|d:\\nirav\\angulr\\full-project\\e-commerce-task\\e-commerce-task\\newtask1_j_query\\newtask1_j_query\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|solutionrelative:newtask1_j_query\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|d:\\nirav\\angulr\\full-project\\e-commerce-task\\e-commerce-task\\newtask1_j_query\\newtask1_j_query\\models\\dtos\\productadddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|solutionrelative:newtask1_j_query\\models\\dtos\\productadddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|d:\\nirav\\angulr\\full-project\\e-commerce-task\\e-commerce-task\\newtask1_j_query\\newtask1_j_query\\repository\\service\\emailsenders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|solutionrelative:newtask1_j_query\\repository\\service\\emailsenders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|d:\\nirav\\angulr\\full-project\\e-commerce-task\\e-commerce-task\\newtask1_j_query\\newtask1_j_query\\models\\user\\reviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|solutionrelative:newtask1_j_query\\models\\user\\reviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|d:\\nirav\\angulr\\full-project\\e-commerce-task\\e-commerce-task\\newtask1_j_query\\newtask1_j_query\\models\\dtos\\productreviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|solutionrelative:newtask1_j_query\\models\\dtos\\productreviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|d:\\nirav\\angulr\\full-project\\e-commerce-task\\e-commerce-task\\newtask1_j_query\\newtask1_j_query\\models\\dtos\\reviewgetdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|solutionrelative:newtask1_j_query\\models\\dtos\\reviewgetdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|d:\\nirav\\angulr\\full-project\\e-commerce-task\\e-commerce-task\\newtask1_j_query\\newtask1_j_query\\controllers\\user\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|solutionrelative:newtask1_j_query\\controllers\\user\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|d:\\nirav\\angulr\\full-project\\e-commerce-task\\e-commerce-task\\newtask1_j_query\\newtask1_j_query\\controllers\\user\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|solutionrelative:newtask1_j_query\\controllers\\user\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|d:\\nirav\\angulr\\full-project\\e-commerce-task\\e-commerce-task\\newtask1_j_query\\newtask1_j_query\\models\\dtos\\cartdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|solutionrelative:newtask1_j_query\\models\\dtos\\cartdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|d:\\nirav\\angulr\\full-project\\e-commerce-task\\e-commerce-task\\newtask1_j_query\\newtask1_j_query\\models\\dtos\\orderdetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|solutionrelative:newtask1_j_query\\models\\dtos\\orderdetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|d:\\nirav\\angulr\\full-project\\e-commerce-task\\e-commerce-task\\newtask1_j_query\\newtask1_j_query\\models\\dtos\\showcartdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1ECA2262-0B11-41C7-A0FF-918F9F0ACFBF}|NewTask1_j_query\\NewTask1_j_query.csproj|solutionrelative:newtask1_j_query\\models\\dtos\\showcartdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Category.cs",
+              "DocumentMoniker": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Models\\Admin\\Category.cs",
+              "RelativeDocumentMoniker": "NewTask1_j_query\\Models\\Admin\\Category.cs",
+              "ToolTip": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Models\\Admin\\Category.cs",
+              "RelativeToolTip": "NewTask1_j_query\\Models\\Admin\\Category.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-27T09:48:42.273Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Subcategory.cs",
+              "DocumentMoniker": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Models\\Admin\\Subcategory.cs",
+              "RelativeDocumentMoniker": "NewTask1_j_query\\Models\\Admin\\Subcategory.cs",
+              "ToolTip": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Models\\Admin\\Subcategory.cs",
+              "RelativeToolTip": "NewTask1_j_query\\Models\\Admin\\Subcategory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-27T09:48:37.082Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Login.cs",
+              "DocumentMoniker": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Models\\User\\Login.cs",
+              "RelativeDocumentMoniker": "NewTask1_j_query\\Models\\User\\Login.cs",
+              "ToolTip": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Models\\User\\Login.cs",
+              "RelativeToolTip": "NewTask1_j_query\\Models\\User\\Login.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-27T09:38:58.867Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Controllers\\User\\UserController.cs",
+              "RelativeDocumentMoniker": "NewTask1_j_query\\Controllers\\User\\UserController.cs",
+              "ToolTip": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Controllers\\User\\UserController.cs",
+              "RelativeToolTip": "NewTask1_j_query\\Controllers\\User\\UserController.cs",
+              "ViewState": "AgIAALwBAAAAAAAAAAAYwOcAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-20T04:52:07.52Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CartController.cs",
+              "DocumentMoniker": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Controllers\\User\\CartController.cs",
+              "RelativeDocumentMoniker": "NewTask1_j_query\\Controllers\\User\\CartController.cs",
+              "ToolTip": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Controllers\\User\\CartController.cs",
+              "RelativeToolTip": "NewTask1_j_query\\Controllers\\User\\CartController.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAgwBgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-05T05:32:06.809Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CategoryController.cs",
+              "DocumentMoniker": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Controllers\\User\\CategoryController.cs",
+              "RelativeDocumentMoniker": "NewTask1_j_query\\Controllers\\User\\CategoryController.cs",
+              "ToolTip": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Controllers\\User\\CategoryController.cs",
+              "RelativeToolTip": "NewTask1_j_query\\Controllers\\User\\CategoryController.cs",
+              "ViewState": "AgIAADgAAAAAAAAAAAAuwBEAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T04:09:12.256Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "OrderTable.cs",
+              "DocumentMoniker": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Models\\User\\OrderTable.cs",
+              "RelativeDocumentMoniker": "NewTask1_j_query\\Models\\User\\OrderTable.cs",
+              "ToolTip": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Models\\User\\OrderTable.cs",
+              "RelativeToolTip": "NewTask1_j_query\\Models\\User\\OrderTable.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAsAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T04:13:48.336Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\appsettings.json",
+              "RelativeDocumentMoniker": "NewTask1_j_query\\appsettings.json",
+              "ToolTip": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\appsettings.json",
+              "RelativeToolTip": "NewTask1_j_query\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-12T06:34:22.812Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ReviewController.cs",
+              "DocumentMoniker": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Controllers\\User\\ReviewController.cs",
+              "RelativeDocumentMoniker": "NewTask1_j_query\\Controllers\\User\\ReviewController.cs",
+              "ToolTip": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Controllers\\User\\ReviewController.cs",
+              "RelativeToolTip": "NewTask1_j_query\\Controllers\\User\\ReviewController.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAowFMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-20T06:58:26.093Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Controllers\\Admin\\AdminController.cs",
+              "RelativeDocumentMoniker": "NewTask1_j_query\\Controllers\\Admin\\AdminController.cs",
+              "ToolTip": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Controllers\\Admin\\AdminController.cs",
+              "RelativeToolTip": "NewTask1_j_query\\Controllers\\Admin\\AdminController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHoBAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T04:48:10.396Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Product.cs",
+              "DocumentMoniker": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Models\\Admin\\Product.cs",
+              "RelativeDocumentMoniker": "NewTask1_j_query\\Models\\Admin\\Product.cs",
+              "ToolTip": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Models\\Admin\\Product.cs",
+              "RelativeToolTip": "NewTask1_j_query\\Models\\Admin\\Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T08:47:21.487Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ForgotPasswordController.cs",
+              "DocumentMoniker": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Controllers\\User\\ForgotPasswordController.cs",
+              "RelativeDocumentMoniker": "NewTask1_j_query\\Controllers\\User\\ForgotPasswordController.cs",
+              "ToolTip": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Controllers\\User\\ForgotPasswordController.cs",
+              "RelativeToolTip": "NewTask1_j_query\\Controllers\\User\\ForgotPasswordController.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAUwMIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-24T05:48:49.924Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ProductUpdateDto.cs",
+              "DocumentMoniker": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Models\\Dtos\\ProductUpdateDto.cs",
+              "RelativeDocumentMoniker": "NewTask1_j_query\\Models\\Dtos\\ProductUpdateDto.cs",
+              "ToolTip": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Models\\Dtos\\ProductUpdateDto.cs",
+              "RelativeToolTip": "NewTask1_j_query\\Models\\Dtos\\ProductUpdateDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T10:05:37.995Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ProductAddDto.cs",
+              "DocumentMoniker": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Models\\Dtos\\ProductAddDto.cs",
+              "RelativeDocumentMoniker": "NewTask1_j_query\\Models\\Dtos\\ProductAddDto.cs",
+              "ToolTip": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Models\\Dtos\\ProductAddDto.cs",
+              "RelativeToolTip": "NewTask1_j_query\\Models\\Dtos\\ProductAddDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T08:53:33.745Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ReviewGetDTO.cs",
+              "DocumentMoniker": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Models\\Dtos\\ReviewGetDTO.cs",
+              "RelativeDocumentMoniker": "NewTask1_j_query\\Models\\Dtos\\ReviewGetDTO.cs",
+              "ToolTip": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Models\\Dtos\\ReviewGetDTO.cs",
+              "RelativeToolTip": "NewTask1_j_query\\Models\\Dtos\\ReviewGetDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T08:58:14.674Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Program.cs",
+              "RelativeDocumentMoniker": "NewTask1_j_query\\Program.cs",
+              "ToolTip": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Program.cs",
+              "RelativeToolTip": "NewTask1_j_query\\Program.cs",
+              "ViewState": "AgIAAHAAAAAAAAAAAAAqwIEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-20T05:01:45.633Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "EmailSenders.cs",
+              "DocumentMoniker": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Repository\\Service\\EmailSenders.cs",
+              "RelativeDocumentMoniker": "NewTask1_j_query\\Repository\\Service\\EmailSenders.cs",
+              "ToolTip": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Repository\\Service\\EmailSenders.cs",
+              "RelativeToolTip": "NewTask1_j_query\\Repository\\Service\\EmailSenders.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAuwDkAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-20T04:56:00.891Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ReviewModel.cs",
+              "DocumentMoniker": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Models\\User\\ReviewModel.cs",
+              "RelativeDocumentMoniker": "NewTask1_j_query\\Models\\User\\ReviewModel.cs",
+              "ToolTip": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Models\\User\\ReviewModel.cs",
+              "RelativeToolTip": "NewTask1_j_query\\Models\\User\\ReviewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-20T06:59:19.846Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Controllers\\User\\OrderController.cs",
+              "RelativeDocumentMoniker": "NewTask1_j_query\\Controllers\\User\\OrderController.cs",
+              "ToolTip": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Controllers\\User\\OrderController.cs",
+              "RelativeToolTip": "NewTask1_j_query\\Controllers\\User\\OrderController.cs",
+              "ViewState": "AgIAAM8AAAAAAAAAAAAmwCABAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T04:09:27.522Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ProductReviewDTO.cs",
+              "DocumentMoniker": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Models\\Dtos\\ProductReviewDTO.cs",
+              "RelativeDocumentMoniker": "NewTask1_j_query\\Models\\Dtos\\ProductReviewDTO.cs",
+              "ToolTip": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Models\\Dtos\\ProductReviewDTO.cs",
+              "RelativeToolTip": "NewTask1_j_query\\Models\\Dtos\\ProductReviewDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T09:15:42.99Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "PaymentController.cs",
+              "DocumentMoniker": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Controllers\\User\\PaymentController.cs",
+              "RelativeDocumentMoniker": "NewTask1_j_query\\Controllers\\User\\PaymentController.cs",
+              "ToolTip": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Controllers\\User\\PaymentController.cs",
+              "RelativeToolTip": "NewTask1_j_query\\Controllers\\User\\PaymentController.cs",
+              "ViewState": "AgIAAHkAAAAAAAAAAAAgwBgAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-11T12:48:51.489Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "OrderDetailDto.cs",
+              "DocumentMoniker": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Models\\Dtos\\OrderDetailDto.cs",
+              "RelativeDocumentMoniker": "NewTask1_j_query\\Models\\Dtos\\OrderDetailDto.cs",
+              "ToolTip": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Models\\Dtos\\OrderDetailDto.cs",
+              "RelativeToolTip": "NewTask1_j_query\\Models\\Dtos\\OrderDetailDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T10:32:33.074Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "CartDto.cs",
+              "DocumentMoniker": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Models\\Dtos\\CartDto.cs",
+              "RelativeDocumentMoniker": "NewTask1_j_query\\Models\\Dtos\\CartDto.cs",
+              "ToolTip": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Models\\Dtos\\CartDto.cs",
+              "RelativeToolTip": "NewTask1_j_query\\Models\\Dtos\\CartDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T07:27:32.987Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "ShowCartDto.cs",
+              "DocumentMoniker": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Models\\Dtos\\ShowCartDto.cs",
+              "RelativeDocumentMoniker": "NewTask1_j_query\\Models\\Dtos\\ShowCartDto.cs",
+              "ToolTip": "D:\\Nirav\\angulr\\full-project\\E-commerce-Task\\E-commerce-Task\\NewTask1_j_query\\NewTask1_j_query\\Models\\Dtos\\ShowCartDto.cs",
+              "RelativeToolTip": "NewTask1_j_query\\Models\\Dtos\\ShowCartDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T05:39:35.83Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

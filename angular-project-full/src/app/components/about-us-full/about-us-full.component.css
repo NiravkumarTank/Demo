@@ -1,0 +1,217 @@
+    /* General Styles */
+    body {
+        font-family: 'Poppins', sans-serif;
+        margin-top: 10px;
+        padding: 0;
+        background-color: #ffffff;
+        /* White background */
+        color: #555;
+        /* Dark gray text for readability */
+        text-align: center;
+    }
+
+    /* Hero Section */
+    .hero {
+        /* background: url('shoe-banner-bw.jpg') no-repeat center center/cover;      */
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hero-overlay {
+        background: rgba(255, 204, 213, 0.8);
+        /* Light pink overlay */
+        padding: 20px 40px;
+        border-radius: 10px;
+        animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .hero h1 {
+        font-size: 3em;
+        margin: 0;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #ff8fab;
+        /* Deep pink */
+    }
+
+    .hero p {
+        font-size: 1.2em;
+        color: #555;
+    }
+
+    /* About Section */
+    .about-container {
+        max-width: 1000px;
+        margin: 50px auto;
+        padding: 30px;
+        background: #ffccd5;
+        /* Light pink background */
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(255, 102, 153, 0.2);
+    }
+
+    .about-content {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 5%;
+
+        text-align: left;
+    }
+
+
+    .about-img {
+        width: 33%;
+        border-radius: 10px;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .about-img:hover {
+        transform: scale(1.05);
+    }
+
+    .about-text {
+        width: 45%;
+        max-width: 450px;
+    }
+    h1{
+        font-size: 54px;
+        color: #000;
+    }
+
+    h2 {
+        color: #000000;
+        border-bottom: 3px solid #ff8fab;
+        display: inline-block;
+        padding-bottom: 5px;
+        margin-right :2%;
+    }
+
+    .carts{
+        margin: 50px 0;
+    }
+
+    p {
+        color: #555;
+        line-height: 1.6;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    ul li {
+        margin: 8px 0;
+        font-weight: 500;
+    }
+
+    /* Why Choose Us */
+    .why-choose {
+        background: #ffe6eb;
+        /* Softer pink */
+        padding: 50px;
+        margin: 30px 0;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(255, 102, 153, 0.2);
+    }
+
+    .why-items {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin: 56px auto;
+        margin-bottom: 6%;
+    }
+
+    .why-box {
+        width: 260px;
+        background: #fff9fa8a;
+        padding: 20px;
+        border-radius: 10px;
+        margin-right: 30px;
+        text-align: center;
+        box-shadow: 0 0 10px rgb(44 41 42 / 20%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .why-box:hover {
+        transform: translateY(-10px);
+    }
+
+    .why-box img {
+        width: 80px;
+        margin-bottom: 10px;
+        filter: brightness(0.8);
+    }
+
+    .why-box h3 {
+        color: #ff4d6d;
+        /* Slightly deeper pink */
+    }
+
+    /* Contact Section */
+    .contact {
+        background: #ff8fab;
+        /* Deeper pink */
+        color: white;
+        padding: 30px;
+        font-size: 1.2em;
+    }
+
+    .contact .highlight {
+        font-weight: bold;
+        color: #fff;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .about-content {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .about-img,
+        .about-text {
+            width: 100%;
+            text-align: center;
+        }
+
+        .why-items {
+            flex-direction: column;
+        }
+
+        .why-box {
+            width: 90%;
+            margin-bottom: 20px;
+
+        }
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Why Choose Us - Image Styling */
+    .why-box img {
+        width: 250px;
+        /* Adjust width as needed */
+        height: 200px;
+        /* Maintain aspect ratio */
+        margin-bottom: 10px;
+        filter: invert(1);
+        /* Converts icons to white for dark mode */
+    }

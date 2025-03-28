@@ -1,0 +1,477 @@
+/* Overall container styling */
+.cart-container {
+    width: 80%;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
+  }
+  
+  /* Cart table styling */
+  #cartTable {
+    width: 100%;
+    border-collapse: collapse;
+   
+  }
+  
+  #cartTable th, #cartTable td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+    
+  }
+  
+  /* Table Header Styling */
+  #cartTable th {
+    background-color: #333;
+    color: white;
+   
+  }
+  
+  /* Table Row Styling */
+  #cartTable tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  /* Image Styling */
+  #cartTable img {
+    max-width: 100px;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  /* Quantity controls and actions */
+  td span {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 10px;
+  }
+  
+  .cart-summary {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 30px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cart-summary span {
+    font-weight: bold;
+    margin-right: 15px;
+    font-size: 1.2em;
+  }
+  
+  #totalPrice {
+    font-size: 1.5em;
+    margin-right: 20px;
+    color: #4CAF50;
+  }
+  
+  /* Button Styling */
+  button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Remove button */
+  button.remove-btn {
+    background-color: red;
+  }
+  
+  button.remove-btn:hover {
+    background-color: darkred;
+  }
+  
+  /* Responsive Layout */
+  @media (max-width: 768px) {
+    .cart-container {
+      width: 90%;
+    }
+  
+    #cartTable {
+      font-size: 14px;
+    }
+  
+    .cart-summary {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .cart-summary span {
+      font-size: 1.1em;
+    }
+  
+    #totalPrice {
+      font-size: 1.2em;
+    }
+  }
+
+  .api-message {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    color: #721c24; 
+  }
+  
+  .error-message {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+  }
+  
+  .success-message {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724; 
+  }
+  
+
+  
+
+
+
+  /* Overall container styling */
+.cart-container {
+  width: 80%;
+  margin: 66px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 1.1);
+}
+
+/* Address Overlay styling */
+.address-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.overlay-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+.overlay-content h3 {
+  margin-bottom: 20px;
+}
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.overlay-buttons button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s;
+  margin: 5px;
+}
+
+.overlay-buttons button:hover {
+  background-color: #45a049;
+}
+
+.overlay-buttons button:last-child {
+  background-color: red;
+}
+
+.overlay-buttons button:last-child:hover {
+  background-color: darkred;
+}
+
+/* Cart table styling */
+#cartTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#cartTable th, #cartTable td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+/* Table Header Styling */
+#cartTable th {
+  background-color: #333;
+  color: white;
+}
+
+/* Table Row Styling */
+#cartTable tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+#cartTable img {
+  max-width: 100px;
+  height: auto;
+  border-radius: 5px;
+}
+
+.cart-summary {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 30px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cart-summary span {
+  font-weight: bold;
+  margin-right: 15px;
+  font-size: 1.2em;
+}
+
+#totalPrice {
+  font-size: 1.5em;
+  margin-right: 20px;
+  color: #4CAF50;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+
+
+
+/* Address Overlay styling */
+.address-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.overlay-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+.overlay-content h3 {
+  margin-bottom: 20px;
+}
+
+input, select {
+  width: 95%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.overlay-buttons button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s;
+  margin: 5px;
+}
+
+.overlay-buttons button:hover {
+  background-color: #45a049;
+}
+
+.overlay-buttons button:last-child {
+  background-color: red;
+}
+
+.overlay-buttons button:last-child:hover {
+  background-color: darkred;
+}
+
+/* Styling for side-by-side address inputs */
+.address-inputs {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px; /* space between the two inputs */
+}
+
+.input-half {
+  width: 48%; /* each input takes up 48% of the container width */
+}
+
+.input-half input {
+  width: 90%;
+}
+
+.input-half select {
+  width: 98%;
+}
+
+.input-half select {
+  padding: 10px;
+}
+
+
+
+
+
+
+
+/* loder css  */
+
+/* From Uiverse.io by SchawnnahJ */ 
+.loader {
+  position: relative;
+  width: 5em; /* Increase the width */
+  height: 5em; /* Increase the height */
+  transform: rotate(165deg);
+}
+
+.loader:before, .loader:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 1em; /* Increase the width of the pseudo-elements */
+  height: 1em; /* Increase the height of the pseudo-elements */
+  border-radius: 0.5em; /* Adjust border-radius for bigger elements */
+  transform: translate(-50%, -50%);
+}
+
+.loader:before {
+  animation: before8 2s infinite;
+}
+
+.loader:after {
+  animation: after6 2s infinite;
+}
+
+@keyframes before8 {
+  0% {
+    width: 0.7em;
+    box-shadow: 2em -1em rgba(225, 20, 98, 0.75), -2em 1em rgba(111, 202, 220, 0.75);
+  }
+
+  35% {
+    width: 5em;
+    box-shadow: 0 -1em rgba(225, 20, 98, 0.75), 0 1em rgba(111, 202, 220, 0.75);
+  }
+
+  70% {
+    width: 0.7em;
+    box-shadow: -2em -1em rgba(225, 20, 98, 0.75), 2em 1em rgba(111, 202, 220, 0.75);
+  }
+
+  100% {
+    box-shadow: 2em -1em rgba(225, 20, 98, 0.75), -2em 1em rgba(111, 202, 220, 0.75);
+  }
+}
+
+@keyframes after6 {
+  0% {
+    height: 0.7em;
+    box-shadow: 1em 2em rgba(61, 184, 143, 0.75), -1em -2em rgba(233, 169, 32, 0.75);
+  }
+
+  35% {
+    height: 5em;
+    box-shadow: 1em 0 rgba(61, 184, 143, 0.75), -1em 0 rgba(233, 169, 32, 0.75);
+  }
+
+  70% {
+    height: 0.7em;
+    box-shadow: 1em -2em rgba(61, 184, 143, 0.75), -1em 2em rgba(233, 169, 32, 0.75);
+  }
+
+  100% {
+    box-shadow: 1em 2em rgba(61, 184, 143, 0.75), -1em -2em rgba(233, 169, 32, 0.75);
+  }
+}
+
+.loader {
+  position: absolute;
+  top: calc(50% - 2.5em); /* Adjust for bigger size */
+  left: calc(50% - 2.5em); /* Adjust for bigger size */
+}
+
+
+/* ------------------ */
+
+/* Ensure that the body and html take full height */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+/* Style for the loading overlay */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; 
+  background: rgba(0, 0, 0, 0.7); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+

@@ -1,0 +1,119 @@
+/* Main container for profile page */
+.profile-container {
+    max-width: 450px;
+    margin: 32px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 1px 24px rgba(0, 0, 0, 1.2);
+    font-family: "Arial", sans-serif;
+  }
+  h1{
+    text-align: center;
+    padding: 15px;
+  }
+  /* Styling the profile info section */
+  .profile-info {
+    margin-bottom: 30px;
+  }
+  
+  /* Styling individual profile fields */
+  .profile-info div {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .profile-info strong {
+    width: 120px; /* Make the labels align nicely */
+    font-weight: 600;
+    color: #333;
+  }
+  
+  /* Styling for input fields */
+  input {
+    padding: 8px 12px;
+    font-size: 14px;
+    width: 63%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fafafa;
+    margin-left: 20px;
+  }
+
+  select{
+    padding: 8px 12px;
+    font-size: 14px;
+    width: 68%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fafafa;
+    margin-left: 20px;
+  }
+  
+  input:focus, select:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  /* Styling for buttons (Edit & Save) */
+  .buttons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+  }
+  span{
+   padding-left: 11px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .profile-container {
+      padding: 15px;
+    }
+  
+    .profile-info div {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .profile-info strong {
+      width: auto; /* Let the label text take full width on small screens */
+      margin-bottom: 5px;
+    }
+  
+    input, select {
+      width: 70%;
+    }
+  
+    .buttons {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    button {
+      width: 100%; /* Make buttons full width on smaller screens */
+    }
+  }
+  

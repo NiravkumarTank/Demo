@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Creation</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #main {
+            justify-content: space-between;
+            text-align: center;
+            background-color: #000;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .nav__link ul {
+            list-style: none;
+            gap: 40px;
+            display: flex;
+            justify-content: flex-end;
+            text-align: center;
+            padding-right: 40px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: aliceblue;
+            transition: 0.3s;
+            padding: 10px;
+            display: block;
+            display: inline-block;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(186, 254, 231, 0.894);
+            border-radius: 10px;
+            color: #000;
+        }
+
+        .form-container {
+            background-color: white;
+            width: 30%;
+            margin: 30px auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 28px rgba(0, 0, 0, 1.1);
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-container label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: large;
+        }
+
+        .form-container input,
+        .form-container textarea {
+            width: 97%;
+            padding: 10px;
+            margin-bottom: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .form-container select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .form-container textarea {
+            height: 50px;
+        }
+
+        .form-container button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .form-container button:hover {
+            background-color: #45a049;
+        }
+
+        span {
+            color: red;
+            margin-bottom: 10px;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        p a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        p a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="main">
+        <div id="menus">
+            <nav class="nav__link">
+                <ul>
+                    <li><a href="../../Admin/homepage/indexhome.html">Home</a></li>
+                    <li><a href="../../Admin/Product/index.html">Add Product</a></li>
+                    <li><a href="../../Admin/AllUser/AllUser.html">All User</a></li>
+                    <li><a href="#">Sign Up</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <h2>Registration Page</h2>
+        <form id="RegistrationForm">
+            <div>
+                <label for="FirstName">FirstName:</label>
+                <input type="text" id="FirstName" name="FirstName">
+                <span id="fnameError"></span>
+            </div>
+
+            <div>
+                <label for="LastName">LastName:</label>
+                <textarea id="LastName" name="LastName"></textarea>
+                <span id="lnameError"></span>
+            </div>
+
+            <div>
+                <label for="Email">Email:</label>
+                <input type="Email" id="Email" name="Email">
+                <span id="emailError"></span>
+            </div>
+
+            <div>
+                <label for="Password">Password:</label>
+                <input type="password" id="Password" name="Password">
+                <span id="pwsError"></span>
+            </div>
+            <div>
+                <label for="cPassword">Confirm Password:</label>
+                <input type="password" id="cPassword" name="cPassword">
+                <span id="cpwsError"></span>
+            </div>
+
+            <div>
+                <label for="PhoneNumber">PhoneNumber:</label>
+                <input type="text" id="PhoneNumber" name="PhoneNumber" min="0">
+                <span id="numberError"></span>
+            </div>
+
+            <div>
+                <label for="Gender">Gender:</label>
+                <select id="Gender" name="Gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+                <span id="genderError"></span>
+            </div>
+
+
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+
+        <p><a href="../Login/Login.html">Login page</a></p>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+
+            function validateFields() {
+                var FirstName = $("#FirstName").val();
+                var LastName = $("#LastName").val();
+                var Email = $("#Email").val();
+                var Password = $("#Password").val();
+                var CPassword = $("#cPassword").val();
+                var PhoneNumber = $("#PhoneNumber").val();
+                var Gender = $("#Gender").val();
+
+                // Clear previous error messages
+                $("#fnameError").text("");
+                $("#lnameError").text("");
+                $("#emailError").text("");
+                $("#pwsError").text("");
+                $("#cpwsError").text("");
+                $("#numberError").text("");
+                $("#genderError").text("");
+
+                var isValid = true;
+
+                if (FirstName == "" || FirstName == null) {
+                    $("#fnameError").text("Product FirstName is required.");
+                    isValid = false;
+                }
+
+                if (LastName == "" || LastName == null) {
+                    $("#lnameError").text("Product LastName is required.");
+                    isValid = false;
+                }
+
+                if (Email == "" || Email == null) {
+                    $("#emailError").text("Product Email is required.");
+                    isValid = false;
+                }
+
+                if (Password == "" || Password == null) {
+                    $("#pwsError").text("Product Password is required.");
+                    isValid = false;
+                }
+
+                if (CPassword == "" || CPassword == null) {
+                    $("#cpwsError").text("Product Confirm Password is required.");
+                    isValid = false;
+                }
+
+                // Check if password and confirm password match
+                if (Password !== CPassword) {
+                    $("#cpwsError").text("Passwords do not match.");
+                    isValid = false;
+                }
+
+                if (PhoneNumber == "" || PhoneNumber == null) {
+                    $("#numberError").text("Product PhoneNumber is required.");
+                    isValid = false;
+                }
+                if (Gender == "" || Gender == null) {
+                    $("#genderError").text("Product Gender is required.");
+                    isValid = false;
+                }
+                return isValid;
+            }
+
+
+            $("#RegistrationForm").submit(function (e) {
+                e.preventDefault();
+
+                if (!validateFields()) {
+                    return;
+                }
+                var FirstName = $("#FirstName").val();
+                var LastName = $("#LastName").val();
+                var Email = $("#Email").val();
+                var Password = $("#Password").val();
+                var CPassword = $("#cPassword").val();
+                var PhoneNumber = $("#PhoneNumber").val();
+                var Gender = $("#Gender").val();
+
+
+                var formdata = new FormData();
+
+
+
+                formdata.append("FirstName", FirstName);
+                formdata.append("LastName", LastName);
+                formdata.append("Email", Email);
+                formdata.append("Password", Password);
+                formdata.append("PhoneNumber", PhoneNumber);
+                formdata.append("Gender", Gender);
+
+                $.ajax({
+                    url: 'https://localhost:7262/api/User/Registration',
+                    type: 'POST',
+                    data: formdata,
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                        alert(response.message);
+                        if (response.message === "Registration successful") {
+                            window.location.href = "../Login/Login.html";
+                        }
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        let errorMessage = jqXHR.responseJSON ? jqXHR.responseJSON.message : 'An error occurred';
+                        console.log(errorMessage);
+                    }
+                });
+
+
+            })
+
+
+        });
+    </script>
+
+</body>
+
+</html>

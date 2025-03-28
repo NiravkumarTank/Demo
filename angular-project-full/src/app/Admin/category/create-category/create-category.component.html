@@ -1,0 +1,28 @@
+<div class="form-container">
+    <h2>Add Category</h2>
+    <form (ngSubmit)="onSubmit(categoryForm)" #categoryForm="ngForm">
+      
+      <div class="form-group">
+        <label for="category">Category:</label>
+        <select id="category" name="category" [(ngModel)]="selectedCategory" #category="ngModel" required>
+          <option value="">Select a Category</option>
+          <option *ngFor="let category of categories" [value]="category.c_Id">{{ category.c_Name }}</option>
+        </select>
+        <!-- Display error message for category -->
+        <small *ngIf="category.touched && category.invalid" class="error">Please select a category.</small>
+      </div>
+  
+      <!-- Subcategory Input -->
+      <div class="form-group">
+        <label for="sc_Name">SubCategory:</label>
+        <input type="text" id="sc_Name" name="sc_Name" [(ngModel)]="subcategoryName" #subcategory="ngModel" required>
+        <!-- Display error message for subcategory -->
+        <small *ngIf="subcategory.touched && subcategory.invalid" class="error">SubCategory is required.</small>
+      </div>
+  
+      <!-- Submit Button -->
+      <div>
+        <button type="submit" [disabled]="categoryForm.invalid">Submit</button>
+      </div>
+    </form>
+</div>

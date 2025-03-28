@@ -1,0 +1,32 @@
+
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+    <h2>Edit Product</h2>
+    <label for="productId">Product ID</label>
+    <input type="number" id="productId" formControlName="ProductId" required readonly>
+  
+    <label for="name">Name</label>
+    <input type="text" id="name" formControlName="Name" required>
+  
+    <label for="description">Description</label>
+    <textarea id="description" formControlName="Description" required></textarea>
+  
+    <label for="price">Price</label>
+    <input type="number" id="price" formControlName="Price" required>
+  
+    <label for="stock">Stock</label>
+    <input type="number" id="stock" formControlName="Stock" required>
+  
+    <div class="image-container">
+      <img [src]="productImageUrl" alt="Product Image" id="productImage"/>
+      <button type="button" (click)="showImageInput = !showImageInput">Update Image</button>
+    </div>
+  
+    <!-- Conditionally show the file input field when showImageInput is true -->
+    <div *ngIf="showImageInput">
+      <label for="image">Image</label>
+      <input type="file" id="image" (change)="onFileChange($event)">
+    </div>
+  
+    <button type="submit" [disabled]="productForm.invalid">Update Product</button>
+  </form>
+  
